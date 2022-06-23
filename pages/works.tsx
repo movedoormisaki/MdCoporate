@@ -145,18 +145,6 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
                       return (
                         <>
                           <WorkCard key={work_index} workData={items} index={work_index} count={count}></WorkCard>
-                          {/* 
-                            {(() => {
-                              if (work_index % 9 == 0 && work_index != 0) {
-                                return (
-                                  <>
-                                    <ul></ul>
-                                  </>
-                                );
-                              } else {
-                                return <></>;
-                              }
-                            })()} */}
                         </>
                       );
                     }

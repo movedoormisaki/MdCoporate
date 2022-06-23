@@ -7,34 +7,22 @@ const BackGround = ({ children, opacity }: any) => {
 
   return (
     <>
-      {(() => {
-        if (width >= 576) {
-          return (
-            <div className="full_bg" style={{ backgroundImage: `url(${Bg_img_pc})` }}>
-              <div className="color_filter">
-                <div className="white"></div>
-              </div>
-              <div className="black">{children}</div>
-            </div>
-          );
-        } else {
-          return (
-            <div className="full_bg" style={{ backgroundImage: `url(${Bg_img_sp})` }}>
-              <div className="color_filter">
-                <div className="white"></div>
-              </div>
-              <div className="black">{children}</div>
-            </div>
-          );
-        }
-      })()}
+      <div className="full_bg">
+        <div className="color_filter">
+          <div className="white"></div>
+        </div>
+        <div className="black">{children}</div>
+      </div>
       <style jsx>{`
         .full_bg {
+          background-image: url('./img/bg_img-pc.jpg');
           background-repeat: repeat-y !important;
           background-size: 100% !important;
           background-position: 50% 0% !important;
           overflow: hidden;
+          position: relative;
           @media screen and (max-width: 576px) {
+            background-image: url('./img/bg_img-sp.jpg');
             background-size: 150% !important;
           }
         }

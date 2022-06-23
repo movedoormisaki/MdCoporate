@@ -6,7 +6,6 @@ import { memberType } from '../lib/type';
 import BackGround from '../components/molecules/BackGround';
 import Image from 'next/image';
 import Link from 'next/link';
-import { INSPECT_MAX_BYTES } from 'buffer';
 import Animation from '../components/templates/Animation';
 
 const members: NextPage<memberType> = (props: memberType) => {
@@ -28,12 +27,12 @@ const members: NextPage<memberType> = (props: memberType) => {
       <BackGround opacity={0.95}>
         <div className={styles.member}>
           <div className={styles.post_top}>
+            <div className={styles.container}>
+              <img className={styles.svg} src="/svg/teammember.svg" alt="チームメンバーの画像" />
+            </div>
             <div className={styles.post_img}>
               <div className={styles.img_inner}>
-                <Image src={member_top_img} layout="fill" alt="About us の画像" />
-                <div className={styles.container}>
-                  <img className={styles.svg} src="/svg/teammembers.svg" alt="チームメンバーの画像" />
-                </div>
+                <Image width={1920} height={560} src={member_top_img} layout="responsive" alt="About us の画像" />
               </div>
             </div>
           </div>
@@ -69,15 +68,19 @@ const members: NextPage<memberType> = (props: memberType) => {
                                               <>
                                                 <div className={styles.open_img}>
                                                   <Image
+                                                    width={160}
+                                                    height={160}
                                                     src={'https:' + items.fields.thumbImg.fields.file.url}
-                                                    layout="fill"
+                                                    layout="responsive"
                                                     alt="ワークス背景素材"
                                                   />
                                                 </div>
                                                 <div className={styles.hover}>
                                                   <Image
+                                                    width={160}
+                                                    height={160}
                                                     src={'https:' + items.fields.thumbHover.fields.file.url}
-                                                    layout="fill"
+                                                    layout="responsive"
                                                     alt="ワークス背景素材"
                                                   />
                                                 </div>
@@ -117,15 +120,19 @@ const members: NextPage<memberType> = (props: memberType) => {
                                           <>
                                             <div className={styles.open_img}>
                                               <Image
+                                                width={160}
+                                                height={160}
                                                 src={'https:' + items.fields.thumbImg.fields.file.url}
-                                                layout="fill"
+                                                layout="responsive"
                                                 alt="ワークス背景素材"
                                               />
                                             </div>
                                             <div className={styles.hover}>
                                               <Image
+                                                width={160}
+                                                height={160}
                                                 src={'https:' + items.fields.thumbHover.fields.file.url}
-                                                layout="fill"
+                                                layout="responsive"
                                                 alt="ワークス背景素材"
                                               />
                                             </div>

@@ -20,8 +20,7 @@ export interface cat {
 }
 
 const WorksPost: NextPage<Props> = ({ post }) => {
-  const description =
-    '株式会社MOVEDOORの数ある実績のひとつです。他にも多くの実績があるので、覗いてください';
+  const description = '株式会社MOVEDOORの数ある実績のひとつです。他にも多くの実績があるので、覗いてください';
   return (
     <>
       <Head>
@@ -37,8 +36,10 @@ const WorksPost: NextPage<Props> = ({ post }) => {
             <div className={styles.post_img}>
               <div className={styles.img_inner}>
                 <Image
+                  width={1920}
+                  height={720}
+                  layout="responsive"
                   src={'https:' + post.fields.workThumb.fields.file.url}
-                  layout="fill"
                   alt="ブログのサムネの大画面"
                 />
                 <div className={styles.black_filter}></div>

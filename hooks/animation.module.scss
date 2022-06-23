@@ -21,7 +21,7 @@
     transform: translateX(-100%);
     top: 0;
     left: 0;
-    animation: titleSlide 1s ease-in-out 0.5s forwards;
+    animation: titleSlide 1s ease-in-out 0s forwards;
   }
 }
 .coverRectAnimeStart {
@@ -32,7 +32,7 @@
 
 @keyframes titleSlide {
   0% {
-    transform: translate(-100%, 0);
+    transform: translate(-110%, 0);
   }
 
   45% {
@@ -44,7 +44,7 @@
   }
 
   100% {
-    transform: translate(100%, 0);
+    transform: translate(110%, 0);
   }
 }
 

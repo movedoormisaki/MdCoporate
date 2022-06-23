@@ -35,7 +35,14 @@ const aboutUs = () => {
           <div className={styles.container}>
             <div className={styles.about_us_ttl}>
               <div className={styles.img_inner}>
-                <Image src="/img/aboutus.png" layout="fill" alt="Aboutusタイトル画像" />
+                <Image
+                  objectFit="contain"
+                  width={1280}
+                  height={450}
+                  src="/img/aboutus.png"
+                  layout="responsive"
+                  alt="Aboutusタイトル画像"
+                />
               </div>
             </div>
 
@@ -55,7 +62,13 @@ const aboutUs = () => {
               <section>
                 <div className={styles.mission_img}>
                   <motion.div variants={childFadeItems} className={styles.img_inner}>
-                    <Image src="/img/mission.png" layout="fill" alt="ミッションの看板を持つ代表取締役" />
+                    <Image
+                      width={720}
+                      height={720}
+                      layout="responsive"
+                      src="/img/mission.png"
+                      alt="ミッションの看板を持つ代表取締役"
+                    />
                   </motion.div>
                 </div>
               </section>
@@ -73,7 +86,13 @@ const aboutUs = () => {
             >
               <section className={styles.vision_img}>
                 <motion.div variants={childFadeItems} className={styles.img_inner}>
-                  <Image src="/img/mission.png" layout="fill" alt="ミッションの看板を持つ代表取締役" />
+                  <Image
+                    width={640}
+                    height={480}
+                    src="/img/wow_img.png"
+                    layout="responsive"
+                    alt="ミッションの看板を持つ代表取締役"
+                  />
                 </motion.div>
               </section>
 
