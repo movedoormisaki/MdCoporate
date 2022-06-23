@@ -3,7 +3,7 @@ import styles from '../styles/contact.module.scss';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
-const contact = ({ respost }: any) => {
+const Contact = ({ respost }: any) => {
   const [submit, setSubmit] = useState(false);
 
   useEffect(() => {
@@ -114,4 +114,4 @@ const contact = ({ respost }: any) => {
   );
 };
 
-export default contact;
+export default Contact;
