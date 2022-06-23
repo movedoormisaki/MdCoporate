@@ -6,7 +6,7 @@ import Image from 'next/image';
 import type { NextPage } from 'next';
 
 import { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
   fadeInUp,
@@ -18,13 +18,7 @@ import {
 } from '../hooks/variants';
 
 const aboutUs: NextPage = () => {
-  const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: [0.25], triggerOnce: true });
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
 
   return (
     <>

@@ -16,7 +16,7 @@ import { useRef, useEffect } from 'react';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { fadeInUp, fadeInRight, fadeInLeft, animationContainer } from '../hooks/variants';
 
@@ -38,16 +38,8 @@ const Home: NextPage<Props> = ({ memberData, blogData, workTag, workData, newsDa
   const Bg_sp_img = '../img/bg_img-sp.jpg';
   const { height, width } = getWindowSize();
 
-  //アニメーション
-  const controls = useAnimation();
 
   const [ref, inView] = useInView({ threshold: [0.25], triggerOnce: true });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
 
   return (
     <>
