@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 const contact = ({ respost }: any) => {
   const [submit, setSubmit] = useState(false);
+
   useEffect(() => {
     setSubmit(false);
   }, []);

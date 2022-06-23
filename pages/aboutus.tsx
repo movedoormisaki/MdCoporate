@@ -5,7 +5,6 @@ import animeStyles from '../hooks/animation.module.css';
 import Image from 'next/image';
 import type { NextPage } from 'next';
 
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -17,7 +16,7 @@ import {
   childFadeItems,
 } from '../hooks/variants';
 
-const aboutUs: NextPage = () => {
+const aboutUs = () => {
   const [ref, inView] = useInView({ threshold: [0.25], triggerOnce: true });
 
   return (
