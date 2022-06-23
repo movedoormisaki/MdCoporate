@@ -17,8 +17,6 @@ import {
 } from '../hooks/variants';
 
 const aboutUs = () => {
-  const [ref, inView] = useInView({ threshold: [0.25], triggerOnce: true });
-
   return (
     <>
       <Head>
