@@ -1,8 +1,7 @@
 import BackGround from '../components/molecules/BackGround';
 import styles from '../styles/contact.module.scss';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 
 const contact = ({ respost }: any) => {
   const [submit, setSubmit] = useState(false);
