@@ -20,11 +20,13 @@
 }
 
 .full_bg {
+  background-image: url('/img/bg_img-pc.jpg');
   background-repeat: repeat-y !important;
   background-size: contain !important;
   background-position: 50% 0% !important;
   overflow: hidden;
   @media screen and (max-width: 576px) {
+    background-image: url('/img/bg_img-sp.jpg');
     background-size: 150% !important;
   }
 }

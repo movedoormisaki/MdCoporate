@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.scss';
 import { createClient } from 'contentful';
 import { memberType, blogData, workTag, workData, newsData } from '../lib/type';
 import { AnimatePresence } from 'framer-motion';
+import Animation from '../components/templates/Animation';
 
 import BlogCard from '../components//molecules/blogCard';
 import Newslist from '../components/molecules/newslist';
@@ -33,12 +34,12 @@ import Service from '../components/topTemplates/Service';
 type Props = memberType & blogData & workTag & workData & newsData;
 
 const Home: NextPage<Props> = ({ memberData, blogData, workTag, workData, newsData }: Props) => {
-  const Bg_img = '../img/bg_img-pc.jpg';
-  const Bg_sp_img = '../img/bg_img-sp.jpg';
   const { height, width } = getWindowSize();
 
   const [ref, inView] = useInView({ threshold: [0.25], triggerOnce: true });
-
+  const description =
+    '兵庫県三田市を拠点の広報PR会社です。WEBサイトや映像制作やチラシ・パンフなどのデザイン制作などを中心にご依頼承っております。';
+  const title = '株式会社MOVEDOOR';
   return (
     <>
       {/* <TopPage
@@ -48,11 +49,14 @@ const Home: NextPage<Props> = ({ memberData, blogData, workTag, workData, newsDa
         workData={workData}
         newsData={newsData}
       ></TopPage> */}
-
-      <div
-        className={styles.full_bg}
-        style={width > 576 ? { backgroundImage: `url(${Bg_img})` } : { backgroundImage: `url(${Bg_sp_img})` }}
-      >
+      <Head>
+        <title>{title}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+      </Head>
+      <Animation />
+      <div className={styles.full_bg}>
         {/* ファーストビュー */}
         <FirstView />
 

@@ -81,14 +81,16 @@ const Layout = ({ children }: Props) => {
           }}
         />
       </Head>
-      <Transition />
+      {/* <Transition /> */}
       <Header nav={nav_items} link={link_items}></Header>
+
       {/* {(() => {
         if (pageLoading) {
           return <PageTransition />;
         }
       })()} */}
-      <motion.main style={{ overflow: 'hidden', position: 'relative' }}>{children}</motion.main>
+
+      <motion.div style={{ overflow: 'hidden', position: 'relative' }}>{children}</motion.div>
       <Footer nav={nav_items} link={link_items}></Footer>
     </>
   );

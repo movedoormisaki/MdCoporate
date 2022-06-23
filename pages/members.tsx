@@ -1,4 +1,5 @@
 import { createClient } from 'contentful';
+import Head from 'next/head';
 import styles from '../styles/member.module.scss';
 import type { NextPage, GetStaticProps } from 'next';
 import { memberType } from '../lib/type';
@@ -6,13 +7,24 @@ import BackGround from '../components/molecules/BackGround';
 import Image from 'next/image';
 import Link from 'next/link';
 import { INSPECT_MAX_BYTES } from 'buffer';
+import Animation from '../components/templates/Animation';
 
 const members: NextPage<memberType> = (props: memberType) => {
   const { memberData } = props;
   const member_top_img = '/img/team_member_top.jpg';
-  console.log(memberData);
+  const title = 'MEMBERS -メンバー紹介-';
+  const description =
+    'MOVEDOORには個性的なメンバーが揃っています。代表軍師の諸富稜を中心に、動画クリエイターやデザイナーやエンジニア。勝利に導く軍師として相応しい人材が揃っております。';
+
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+      </Head>
+      <Animation />
       <BackGround opacity={0.95}>
         <div className={styles.member}>
           <div className={styles.post_top}>

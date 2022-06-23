@@ -6,6 +6,8 @@ import BackBtn from '../../components/atoms/backBtn';
 import Moment from 'react-moment';
 import Cont from '../../components/molecules/Cont';
 import BackGround from '../../components/molecules/BackGround';
+import Animation from '../../components/templates/Animation';
+import Head from 'next/head';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -16,8 +18,16 @@ export interface cat {
 }
 
 const Post: NextPage<Props> = ({ post }) => {
+  const description = 'MOVEDOORのお知らせになります。日々進化しているMOVEDOORは変化が速いので、見逃さないでください';
   return (
     <>
+      <Head>
+        <title>{post.fields.newTtl}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={post.fields.newTtl} />
+        <meta property="og:description" content={description} />
+      </Head>
+      <Animation />
       <BackGround opacity={0.6}>
         <div className={`${styles.news_post} ${styles.post}`}>
           <div className={styles.post_top}></div>

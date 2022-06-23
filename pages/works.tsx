@@ -10,6 +10,8 @@ import { getWindowSize } from '../hooks/GetWindowSize';
 import { useRouter } from 'next/router';
 import type { NextRouter } from 'next/router';
 import { count } from 'console';
+import { motion } from 'framer-motion';
+import Animation from '../components/templates/Animation';
 
 export interface workData_type {
   fields: {
@@ -38,6 +40,10 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
   const [filteredPosts, setFilteredPosts] = useState<workData_type[]>(workData);
 
   const { width } = getWindowSize();
+
+  const description =
+    '兵庫県三田市を拠点にしておりますが、ご依頼は関西全域から頂いております。その実績をこちらには掲載しているので、覗きに来てください';
+  const title = 'WORKS -実績事例-';
 
   const tag_array: any = [];
   workTag.map((tag) => tag_array.push(tag.fields.worksTagName));
@@ -69,6 +75,13 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
 
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+      </Head>
+      <Animation />
       <BackGround opacity={0.5}>
         <div className={styles.works}>
           <div className={styles.white_bg}>
@@ -132,18 +145,18 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
                       return (
                         <>
                           <WorkCard key={work_index} workData={items} index={work_index} count={count}></WorkCard>
-
-                          {/* {(() => {
-                            if (work_index % 9 == 0 && work_index != 0) {
-                              return (
-                                <>
-                                  <ul></ul>
-                                </>
-                              );
-                            } else {
-                              return <></>;
-                            }
-                          })()} */}
+                          {/* 
+                            {(() => {
+                              if (work_index % 9 == 0 && work_index != 0) {
+                                return (
+                                  <>
+                                    <ul></ul>
+                                  </>
+                                );
+                              } else {
+                                return <></>;
+                              }
+                            })()} */}
                         </>
                       );
                     }

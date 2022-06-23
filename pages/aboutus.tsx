@@ -4,6 +4,7 @@ import styles from '../styles/aboutUs.module.scss';
 import animeStyles from '../hooks/animation.module.css';
 import Image from 'next/image';
 import type { NextPage } from 'next';
+import Animation from '../components/templates/Animation';
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -17,11 +18,18 @@ import {
 } from '../hooks/variants';
 
 const aboutUs = () => {
+  const description =
+    'MOVEDOORのMISSIONは"広報PRで事業成長を実現する"というものです。クライアントの集客・採用・ブランディングを勝利に導きます。また学生起業した道のりやワッと驚くミッションまでMOVEDOORの歴史を入れています。';
+  const title = 'ABOUT US -私たちについて-';
   return (
     <>
       <Head>
-        <title>About US -私たちについて-</title>
+        <title>{title}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
       </Head>
+      <Animation />
       <BackGround opacity={0.95}>
         <div>
           <div className={styles.container}>

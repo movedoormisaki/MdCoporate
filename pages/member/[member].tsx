@@ -5,13 +5,23 @@ import { createClient, EntryCollection } from 'contentful';
 import Image from 'next/image';
 import Cont from '../../components/molecules/Cont';
 import BackBtn from '../../components/atoms/backBtn';
+import Animation from '../../components/templates/Animation';
+import Head from 'next/head';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const MemberWork: NextPage<Props> = ({ post }) => {
-  console.log(post);
+  const description =
+    'MOVEDOORには個性的なメンバーが揃っています。代表軍師の諸富稜を中心に、動画クリエイターやデザイナーやエンジニア。勝利に導く軍師として相応しい人材が揃っております。';
   return (
     <>
+      <Head>
+        <title>{post.fields.name}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={post.fields.name} />
+        <meta property="og:description" content={description} />
+      </Head>
+      <Animation />
       <div className={`${styles.member_post} ${styles.post} ${classes.memberPost}`}>
         <div className={classes.header_ttl}>
           <h1>Member Info.</h1>

@@ -10,8 +10,9 @@ const Mission = () => {
   const { width } = getWindowSize();
   const [ref, inView] = useInView({
     threshold: [0.25],
-    triggerOnce: true, // 最初の一度だけ実行
   });
+
+  console.log('inview', inView);
 
   useEffect(() => {}, []);
 
@@ -23,7 +24,7 @@ const Mission = () => {
          ${styles.yellow_rect}`}
         ></div>
         <img className={styles.mesh} src="./svg/mesh_bg.svg" alt="背景のメッシュ素材" />
-        <div ref={ref} className={styles.container}>
+        <div className={styles.container}>
           <div className={styles.inner}>
             <div className={styles.tommy_img}>
               <div className={`${inView ? animation.fadeInUp : animation.fadeInUpStart} ${styles.img_inner}`}>
@@ -45,6 +46,7 @@ const Mission = () => {
               />
               <div className={styles.mission_detail}>
                 <h4
+                  ref={ref}
                   style={{ animationDelay: '1.5s' }}
                   className={`${inView ? animation.fadeInUp : animation.fadeInUpStart}`}
                 >

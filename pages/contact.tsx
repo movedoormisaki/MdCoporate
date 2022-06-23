@@ -1,10 +1,17 @@
 import BackGround from '../components/molecules/BackGround';
 import styles from '../styles/contact.module.scss';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useState, useEffect } from 'react';
+import { NextPage } from 'next';
+import Animation from '../components/templates/Animation';
 
-const Contact = ({ respost }: any) => {
+const Contact: NextPage = ({ respost }: any) => {
   const [submit, setSubmit] = useState(false);
+
+  const description =
+    'MOVEDOORのお問い合わせフォームです。広報の無料相談から受けつけておりますので、ご気軽にお問い合わせください。弊社の最強の軍師がお客様の課題解決を行いに参上します。';
+  const title = 'CONTACT -お問い合わせ-';
 
   useEffect(() => {
     setSubmit(false);
@@ -30,6 +37,13 @@ const Contact = ({ respost }: any) => {
 
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+      </Head>
+      <Animation />
       <BackGround opacity={0.6}>
         <div className={styles.contact}>
           <div className={styles.container}>

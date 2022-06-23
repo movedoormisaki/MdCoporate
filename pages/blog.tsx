@@ -7,6 +7,7 @@ import { createClient } from 'contentful';
 import { blogData, blogTag } from '../lib/type';
 import { useState, useEffect } from 'react';
 import { type } from 'os';
+import Animation from '../components/templates/Animation';
 
 export interface blogData_type {
   fields: {
@@ -35,6 +36,9 @@ type Props = blogTag & blogData;
 const Blog: NextPage<Props> = ({ blogData, blogTag }: Props) => {
   const [filteredPosts, setFilteredPosts] = useState<blogData_type[]>(blogData);
 
+  const title = 'BLOGS -代表諸富稜の公式ブログ-';
+  const description = '取締役代表のとみー(諸富)が執筆する公式ブログ　—— 企業文化から経営思想、地域での活動まで';
+
   const tag_array: any = [];
   blogTag.map((tag) => tag_array.push(tag.fields.tagName));
 
@@ -56,6 +60,13 @@ const Blog: NextPage<Props> = ({ blogData, blogTag }: Props) => {
 
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+      </Head>
+      <Animation />
       <BackGround opacity={0.5}>
         <div className={styles.blog}>
           <div className={styles.white_bg}>

@@ -8,7 +8,8 @@ import { type } from 'os';
 import BackBtn from '../../components/atoms/backBtn';
 import Image from 'next/image';
 import Cont from '../../components/molecules/Cont';
-
+import Animation from '../../components/templates/Animation';
+import Head from 'next/head';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -19,9 +20,17 @@ export interface cat {
 }
 
 const WorksPost: NextPage<Props> = ({ post }) => {
-  
+  const description =
+    '株式会社MOVEDOORの数ある実績のひとつです。他にも多くの実績があるので、覗いてください';
   return (
     <>
+      <Head>
+        <title>{post.fields.workTtl}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={post.fields.workTtl} />
+        <meta property="og:description" content={description} />
+      </Head>
+      <Animation />
       <BackGround opacity={0.8}>
         <div className={`${styles.works_post} ${styles.post}`}>
           <div className={styles.post_top}>

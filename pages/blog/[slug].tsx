@@ -10,6 +10,8 @@ import { type } from 'os';
 import BackBtn from '../../components/atoms/backBtn';
 import { Component } from 'react';
 import Cont from '../../components/molecules/Cont';
+import Animation from '../../components/templates/Animation';
+import Head from 'next/head';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -20,8 +22,16 @@ export interface cat {
 }
 
 const Post: NextPage<Props> = ({ post }) => {
+  const description = '取締役代表のとみー(諸富)が執筆する公式ブログ　—— 企業文化から経営思想、地域での活動まで';
   return (
     <>
+      <Head>
+        <title>{post.fields.name}</title>
+        <meta property="description" content={description} />
+        <meta property="og:title" content={post.fields.name} />
+        <meta property="og:description" content={description} />
+      </Head>
+      <Animation />
       <div className={`${styles.blog_post} ${styles.post}`}>
         <div className={styles.post_top}>
           <div className={styles.post_img}>
