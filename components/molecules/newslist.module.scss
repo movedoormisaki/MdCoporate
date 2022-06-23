@@ -1,0 +1,50 @@
+@import 'styles/_mixin.scss';
+
+.news_list {
+  display: flex;
+  justify-content: center;
+  @include custom_gap(0, 40, 83, 20);
+  .time {
+    .date_inner {
+      @include flex-center;
+      flex-direction: column;
+
+      .date {
+        @include font(32, 24, 32, 24, 400);
+        margin-bottom: 4px;
+      }
+      .youbi {
+        width: 100%;
+        border: 1px solid #bababa;
+        @include flex-center;
+        padding: 2px 0;
+        text-align: center;
+        text-transform: uppercase;
+        @include font(16, 10, 24, 20, 400);
+        margin-bottom: 4px;
+        @media screen and (max-width: 576px) {
+          padding: 0;
+        }
+      }
+      .year {
+        @include font(16, 12, 24, 24, 400);
+        text-align: center;
+      }
+    }
+  }
+
+  .news_ttl {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .main_ttl {
+      @include font(32, 24, 32, 24, 400);
+      @include liquidSize(padding-bottom, 12, 6);
+      border-bottom: #bababa solid 1px;
+    }
+    .detail {
+      @include font(16, 14, 24, 24, 400);
+      @include liquidSize(padding-top, 12, 6);
+    }
+  }
+}

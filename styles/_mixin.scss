@@ -1,0 +1,368 @@
+@mixin dnp_font {
+  font-family: dnp-shuei-shogomincho-std, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin dnp_gothic_font {
+  font-family: dnp-shuei-gothic-gin-std, sans-serif;
+  font-style: normal;
+}
+
+@mixin Oswald_font {
+  font-family: 'Oswald', sans-serif;
+}
+
+$breakpoint-xxl: 1920px;
+$breakpoint-xl: 1360px;
+$breakpoint-lg: 992px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 576px;
+$breakpoint-xs: 375px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1920px,
+);
+
+//- to container
+
+$col-sm: 540px; // (max-width: 540px)
+$col-md: 720px; // (max-width: 720px)
+$col-lg: 960px; // (max-width: 960px)
+$col-xl: 1360px; // (max-width: 1360px)
+
+$breakpoints: (
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+);
+
+@mixin mq($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+}
+
+@mixin container($xl-col: $col-xl, $lg-col: $col-lg, $md-col: $col-md, $sm-col: $col-sm) {
+  position: relative;
+  margin: 0 auto;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  width: 100%;
+
+  @include mq(sm) {
+    max-width: $sm-col;
+  }
+
+  @include mq(md) {
+    max-width: $md-col;
+  }
+
+  @include mq(lg) {
+    max-width: $lg-col;
+  }
+
+  @include mq(xl) {
+    max-width: $xl-col;
+  }
+}
+
+@mixin max-screen($break-point) {
+  @media screen and (max-width: $break-point) {
+    @content;
+  }
+}
+@mixin min-screen($break-point) {
+  @media screen and (min-width: $break-point) {
+    @content;
+  }
+}
+@mixin screen($break-point-min, $break-point-max) {
+  @media screen and (min-width: $break-point-min) and (max-width: $break-point-max) {
+    @content;
+  }
+}
+
+$spCamp: 375;
+$tb_under: 768;
+$tb_top: 992;
+$pcCamp: 1920;
+
+@mixin liquidSize($selector, $pc, $sp, $tb: (($pc + $sp)/2)) {
+  @if $sp == 'auto' {
+    #{$selector}: auto;
+  } @else {
+    #{$selector}: #{$sp}px;
+    #{$selector}: calc(#{$sp} / #{$spCamp} * 100vw);
+  }
+
+  @include max-screen($breakpoint-xs) {
+    @if $sp == 'auto' {
+      #{$selector}: auto;
+    } @else {
+      #{$selector}: #{$sp}px;
+    }
+  }
+
+  @include max-screen($breakpoint-sm) {
+    @if $sp == 'auto' {
+      #{$selector}: auto;
+    } @else {
+      #{$selector}: calc(#{$sp} / #{$spCamp} * 100vw);
+    }
+  }
+
+  @include screen($breakpoint-sm, $breakpoint-md) {
+    @if $tb == 'auto' {
+      #{$selector}: auto;
+    } @else {
+      #{$selector}: calc(#{$tb} / #{$tb_under} * 100vw);
+    }
+  }
+
+  @include screen($breakpoint-md, $breakpoint-lg) {
+    @if $tb == 'auto' {
+      #{$selector}: auto;
+    } @else {
+      #{$selector}: calc(#{$tb} / #{$tb_top} * 100vw);
+    }
+  }
+
+  @include min-screen($breakpoint-lg) {
+    @if $pc == 'auto' {
+      #{$selector}: auto;
+    } @else {
+      #{$selector}: #{$pc}px;
+      #{$selector}: calc(#{$pc} / #{$pcCamp} * 100vw);
+    }
+  }
+
+  @include min-screen($breakpoint-xxl) {
+    @if $pc == 'auto' {
+      #{$selector}: auto;
+    } @else {
+      #{$selector}: #{$pc}px;
+    }
+  }
+}
+
+@mixin absolute-center($top: 50%, $left: 50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  margin: auto;
+}
+
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin has-background {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+//paddingの左右だけ
+@mixin custom_padding_container($pmax, $pmin) {
+  width: 100%;
+  @include liquidSize(padding-right, $pmax, $pmin);
+  @include liquidSize(padding-left, $pmax, $pmin);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin font($a, $b, $c, $d, $f) {
+  @include liquidSize(font-size, $a, $b);
+  @include liquidSize(line-height, $c, $d);
+  font-weight: $f;
+}
+
+//paddingの上下だけ
+@mixin pd($a, $b) {
+  @include liquidSize(padding-top, $a, $b);
+  @include liquidSize(padding-bottom, $a, $b);
+}
+
+//paddingの右だけ
+@mixin pd_right($right_max, $right_min) {
+  @include liquidSize(padding-right, $right_min);
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: auto;
+}
+
+//paddingの左だけ
+@mixin pd_left($left_max, $left_min) {
+  @include liquidSize(padding-left, $left_max, $left_min);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: auto;
+}
+
+//paddingの上下左右を可変にしたい
+@mixin padding-full($pp_a-Y_max, $pp_b-X_max, $pp_c-Y_min, $pp_d-X_min) {
+  @include liquidSize(padding-top, $pp_a-Y_max, $pp_c-Y_min);
+  @include liquidSize(padding-bottom, $pp_a-Y_max, $pp_c-Y_min);
+  @include liquidSize(padding-right, $pp_b-X_max, $pp_d-X_min);
+  @include liquidSize(padding-left, $pp_b-X_max, $pp_d-X_min);
+} //asset
+
+@mixin img_sp($bgImage-pc, $bgImage-sp, $kakutyoshi) {
+  @media screen and (max-width: 576px) {
+    background: url(../img/top/#{$bgImage-sp}.#{$kakutyoshi});
+  }
+  @media screen and (min-width: 576px) {
+    background: url(../img/top/#{$bgImage-pc}.#{$kakutyoshi});
+  }
+}
+
+@mixin mb($margin-bottom-max, $margin-bottom-min) {
+  @include liquidSize(margin-bottom, $margin-bottom-max, $margin-bottom-min);
+}
+
+@mixin custom_gap($row-gap_max, $row-gap_min, $column-gap_max, $column-gap_min) {
+  @include liquidSize(row-gap, $row-gap_max, $row-gap_min);
+  @include liquidSize(column-gap, $column-gap_max, $column-gap_min);
+}
+
+@mixin section_sepa($left_rate, $right_rate) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  section:nth-child(1) {
+    width: #{$left_rate}+ '%';
+  }
+  section:nth-child(2) {
+    width: #{$right_rate}+ '%';
+  }
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+    section {
+      width: 100% !important;
+    }
+  }
+}
+
+@mixin span_br($selecor) {
+  @if $selecor == 'before' {
+    &::before {
+      content: '\A';
+      white-space: pre;
+    }
+  }
+  @if $selecor == 'after' {
+    &::after {
+      content: '\A';
+      white-space: pre;
+    }
+  }
+}
+
+@mixin deco_txt {
+  @include font(24, 14, 36, 20, 400);
+  color: #dddddd;
+  text-transform: capitalize;
+  @include dnp_font;
+  padding: 13px 0;
+  display: inline-block;
+  position: relative;
+  @media screen and (max-width: 576px) {
+    padding: 6px 0;
+  }
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: 90%;
+    background-color: #dddddd;
+    height: 2px;
+    @media screen and (max-width: 576px) {
+      height: 1px;
+    }
+  }
+  &::before {
+    top: initial;
+    bottom: 0;
+  }
+}
+
+@mixin category_tag {
+  .cat {
+    @include pd(30, 50);
+    ul {
+      display: flex;
+      @include custom_gap(20, 16, 40, 20);
+      flex-wrap: wrap;
+      li {
+        @include font(16, 14, 24, 20, 400);
+        color: #aaaaaa;
+        @include dnp_font;
+        cursor: pointer;
+        transition: 0.3s all ease-in;
+        position: relative;
+
+        &::before {
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #aaaaaa;
+          transform-origin: left top;
+          transition: transform 0.3s;
+          @media screen and (max-width: 576px) {
+            height: 1px;
+          }
+        }
+
+        &.tag_true {
+          color: #000;
+          position: relative;
+          display: inline-block;
+          &::after {
+            background: #9e001b;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 2px;
+            animation: underline 0.2s;
+            transform-origin: left top;
+            transition: transform 0.3s;
+            @media screen and (max-width: 576px) {
+              height: 1px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes underline {
+  0% {
+    transform: scale(0, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

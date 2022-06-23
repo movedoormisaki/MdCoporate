@@ -1,0 +1,114 @@
+@import '_mixin.scss';
+
+.center {
+  text-align: center;
+}
+.thanks_ttl {
+  h1 {
+    color: #e0bd00;
+    @include font(72, 40, 72, 24, 400);
+    @include mb(30, 20);
+    text-transform: uppercase;
+  }
+  hr {
+    width: 100px;
+    background-color: #e0bd00;
+    margin: 0 auto;
+  }
+}
+.thanks_detail {
+  @include pd(120, 80);
+  @include dnp-font;
+  color: #fff;
+  p {
+    @include font(24, 14, 48, 27, 400);
+  }
+}
+.top {
+  @include font(32, 28, 48, 27, 400);
+  @include dnp-font;
+  border-bottom: 2px #fff solid;
+  display: inline-block;
+  color: #fff;
+}
+
+.contact {
+  @include pd(185, 80);
+  .container {
+    @include container(720px, 720px);
+    @include dnp-font;
+    .contact_ttl {
+      h1 {
+        color: #e0bd00;
+        @include font(72, 40, 72, 24, 400);
+        @include mb(30, 20);
+        text-transform: uppercase;
+      }
+      hr {
+        width: 40px;
+        color: #e0bd00;
+      }
+    }
+    form {
+      @include pd(80, 80);
+      .items {
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        @include mb(35, 20);
+
+        label {
+          @include font(24, 14, 48, 27, 400);
+          @include mb(16, 10);
+        }
+        input,
+        textarea {
+          @include liquidSize(height, 56, 40);
+          border-radius: 5px;
+          background-color: #ffffff;
+          color: #000;
+          @include padding-full(10, 15, 3, 5);
+          @include font(20, 16, 36, 24, 400);
+        }
+        textarea {
+          @include liquidSize(height, 360, 200);
+        }
+      }
+      .checkbox {
+        display: flex;
+        align-items: center;
+        input {
+          width: 18px;
+          height: 18px;
+          border-radius: 2px;
+          background-color: #ffffff;
+        }
+        label {
+          @include font(24, 14, 48, 27, 400);
+          color: #fff;
+          padding-left: 15px;
+        }
+      }
+      .submit_btn {
+        @include flex-center;
+        @include liquidSize(margin-top, 80, 84);
+        button {
+          width: 240px;
+          height: 80px;
+          background: transparent radial-gradient(closest-side at 50% 50%, #ffd700 0%, #ffd800 32%, #847000 100%) 0% 0%
+            no-repeat padding-box;
+          @include flex-center;
+          @include font(24, 16, 48, 36, 400);
+          position: relative;
+          &:after {
+            content: '';
+            width: 230px;
+            height: 70px;
+            border: #000 2px solid;
+            @include absolute-center;
+          }
+        }
+      }
+    }
+  }
+}

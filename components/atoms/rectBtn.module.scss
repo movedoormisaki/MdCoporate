@@ -1,0 +1,45 @@
+@import 'styles/_mixin.scss';
+
+.rect_btn {
+  @include liquidSize(width, 400, 200);
+  @include liquidSize(height, 80, 40);
+  cursor: pointer;
+  @include flex_center;
+  box-shadow: 8px 8px 0px #00000080;
+  @media screen and (max-width: 576px) {
+    box-shadow: 4px 4px 0px #00000080;
+  }
+  .inner {
+    @include liquidSize(width, 392, 192);
+    @include liquidSize(height, 72, 36);
+    border: 2px solid #000000;
+    @include flex_center;
+    position: relative;
+    @media screen and (max-width: 576px) {
+      border: 1.5px solid #000000;
+    }
+    a {
+      color: #000;
+      @include Oswald_font;
+      @include font(24, 12, 48, 24, 500);
+      text-transform: uppercase;
+      @include liquidSize(letter-spacing, 10, 5);
+      @media screen and (max-width: 576px) {
+      }
+    }
+    svg {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      margin: auto;
+      transition: 0.2s all ease-in-out;
+      @include liquidSize(width, 56, 28);
+    }
+  }
+  &:hover {
+    svg {
+      right: -3%;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@import 'styles/_mixin.scss';
+
+.footer {
+  background: #000000;
+  @include flex-center;
+  flex-direction: column;
+  @include liquidSize(padding-top, 70, 0);
+  .footer_nav {
+    @include pd(80, 65);
+    @include container(960px);
+    .footer_ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+      li {
+        color: #ffffff;
+        @include liquidSize(font-size, 24, 24, 24);
+        @include dnp_font;
+        text-transform: uppercase;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 30px;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+  .footer_logo {
+    @include liquidSize(width, 112, 75);
+    @include pd(80, 80);
+    margin: 0 auto;
+  }
+  .copyright {
+    border-top: #ffffff 1px solid;
+    @include flex_center;
+    @include pd(16, 10);
+    width: 100%;
+    p {
+      color: #ffffff;
+      @include font(16, 12, 32, 24, 400);
+      @include dnp_font;
+      opacity: 0.8;
+    }
+  }
+}

@@ -1,0 +1,142 @@
+@import 'styles/_mixin.scss';
+
+.header {
+  .header_cont {
+    position: relative;
+    z-index: 1999;
+
+    .nav_cont {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: 3s cubic-bezier(0, 1, 0.31, 1.16);
+
+      .bg_img {
+        width: inherit;
+        height: inherit;
+        z-index: 2001;
+        .img_inner {
+          width: inherit;
+          height: inherit;
+          img {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .nav {
+        z-index: 2999;
+        position: absolute;
+        top: 0;
+        left: 20%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .ul {
+          display: flex;
+          flex-direction: column;
+          justify-items: center;
+          @include liquidSize(row-gap, 60, 30);
+
+          li {
+            a {
+              cursor: pointer;
+              @include font(72, 40, 48, 48, 700);
+              @include Oswald_font;
+              letter-spacing: 0.58px;
+              color: #dddddd;
+              transition: 0.2s;
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .menu_btn {
+      cursor: pointer;
+      position: fixed;
+      z-index: 9999;
+      @include liquidSize(width, 105, 75);
+      @include liquidSize(height, 105, 75);
+      @include liquidSize(right, 40, 15);
+      @include liquidSize(top, 40, 15);
+      .menu_bg {
+        position: absolute;
+        object-fit: cover;
+        width: inherit;
+        height: auto;
+        transition: 0.3s all ease-in-out;
+      }
+      .hamburger {
+        @include flex-center;
+        flex-direction: column;
+        width: inherit;
+        height: inherit;
+        position: relative;
+        div {
+          background-color: #fff;
+          @include liquidSize(height, 3, 1);
+          @include liquidSize(width, 24, 16);
+          margin-bottom: 5px;
+          transform: transform(0) rotate(0deg);
+          opacity: 1;
+          transition: 0.3s all ease-in-out;
+          @media screen and (max-width: 576px) {
+          }
+        }
+      }
+    }
+  }
+}
+
+// 開いた時の処理
+.open {
+  .nav_cont {
+    animation: opacityUp cubic-bezier(0, 1, 0.31, 1.16) forwards;
+    opacity: 1;
+    animation-duration: 2s;
+    pointer-events: all !important;
+    transition: 3s cubic-bezier(0, 1, 0.31, 1.16);
+  }
+  .menu_bg {
+    transform: rotate(180deg);
+  }
+  .hamburger {
+    div {
+      &:nth-child(1) {
+        transform: translate(0px, 6px) rotate(405deg);
+      }
+      &:nth-child(2) {
+        transform: translateX(10vw);
+        opacity: 0 !important;
+      }
+      &:nth-child(3) {
+        transform: translate(0px, -10px) rotate(-225deg);
+        @media screen and (max-width: 576px) {
+          transform: translate(0px, -6px) rotate(-225deg);
+        }
+      }
+    }
+  }
+}
+
+@keyframes opacityUp {
+  0% {
+    opacity: 0;
+    transform: translate(0, 30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

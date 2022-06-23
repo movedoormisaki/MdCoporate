@@ -1,0 +1,131 @@
+@import '_mixin.scss';
+
+.post {
+  .post_top {
+    position: relative;
+    .post_img {
+      @include liquidSize(height, 540, 120);
+      position: relative;
+      width: 100%;
+      .img_inner {
+        height: inherit;
+        width: inherit;
+
+        img {
+          object-fit: cover;
+          height: inherit;
+          width: inherit;
+          z-index: 1;
+        }
+        .black_filter {
+          background: rgb(0, 0, 0, 0.7);
+          height: inherit;
+          width: inherit;
+          z-index: 3;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .container {
+    @include container(960px);
+    @include liquidSize(max-width, 960, 355);
+    @include liquidSize(padding-bottom, 300, 200);
+    .post_inner {
+      color: #000000;
+      @include liquidSize(padding-top, 77, 37);
+      @include dnp_gothic_font;
+      .post_tag {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        @include mb(70, 40);
+        li {
+          color: #aaaaaa;
+          @include font(16, 14, 28, 20, 400);
+          @include liquidSize(padding-right, 43, 20);
+        }
+      }
+      h1 {
+        @include font(40, 28, 60, 32, 400);
+        font-weight: 600;
+        @include mb(10, 10);
+      }
+      hr {
+        width: 40px;
+        color: #000;
+        @include mb(40, 20);
+      }
+    }
+  }
+}
+
+.white_bg {
+  background: white;
+}
+
+.post_top_ttl {
+  height: inherit;
+  width: inherit;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include flex_center;
+  color: #fff;
+  @include dnp_gothic_font;
+  flex-direction: column;
+
+  .works_top_ttl {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      @include font(16, 12, 32, 20, 400);
+      position: absolute;
+      @include liquidSize(top, -60, -40);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: auto;
+      text-transform: capitalize;
+      padding: 8px 0;
+      white-space: nowrap;
+      &:after,
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        width: 90%;
+        background-color: #dddddd;
+        height: 2px;
+      }
+      &::before {
+        top: initial;
+        bottom: 0;
+      }
+    }
+    h6 {
+      @include font(40, 32, 64, 64, 400);
+    }
+  }
+}
+
+.news_post {
+  .post_top {
+    @include liquidSize(height, 200, 100);
+  }
+  .post_date {
+    color: #aaaaaa;
+    @include mb(70, 60);
+  }
+}

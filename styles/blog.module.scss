@@ -1,0 +1,58 @@
+@import '_mixin.scss';
+
+.blog {
+  @include liquidSize(padding-top, 200, 100);
+  .white_bg {
+    background: white;
+    .container {
+      @include container(1440px);
+      @include liquidSize(max-width, 1440, 355);
+      @include liquidSize(padding-bottom, 300, 200);
+      @media screen and (max-width: 576px) {
+        max-width: 100%;
+      }
+
+      .ttl {
+        @include dnp_font;
+        @include liquidSize(padding-top, 96, 40);
+
+        h2 {
+          @include font(32, 24, 48, 24, 400);
+          color: #000;
+          letter-spacing: 1.6px;
+          color: #000000;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+
+        hr {
+          width: 40px;
+          color: #000;
+          @include mb(80, 60);
+        }
+        p {
+          @include font(16, 14, 40, 24, 400);
+          color: #000;
+          @include mb(30, 40);
+        }
+      }
+
+      .post {
+        @include pd(50, 20);
+        > ul {
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+
+          @include custom_gap(70, 25, 20, 5);
+          &:after {
+            content: '';
+            display: block;
+            @include liquidSize(width, 440, 150);
+          }
+        }
+      }
+      @include category_tag;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.pageTransition {
+  animation: slideshow 1s ease-in-out 0s forwards;
+}
+
+@keyframes slideshow {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, -100%);
+  }
+}

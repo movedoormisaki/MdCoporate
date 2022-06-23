@@ -1,0 +1,153 @@
+// AFTERの四角が前に来て、それが消えたら表示されている。
+//className={`${inView ? animation.coverRectAnime : animation.coverRectAnimeStart}`}
+
+.coverRectAnime {
+  overflow: hidden;
+  position: relative;
+
+  span {
+    animation: opacity 0.1s ease-in-out 1s forwards;
+    position: relative;
+    display: block;
+    opacity: 0;
+  }
+
+  &:after {
+    content: '';
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateX(-100%);
+    top: 0;
+    left: 0;
+    animation: titleSlide 1s ease-in-out 0.5s forwards;
+  }
+}
+.coverRectAnimeStart {
+  span {
+    opacity: 0;
+  }
+}
+
+@keyframes titleSlide {
+  0% {
+    transform: translate(-100%, 0);
+  }
+
+  45% {
+    transform: translate(0, 0);
+  }
+
+  65% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(100%, 0);
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// -------------------------
+
+.fadeInUp {
+  animation: opacityUp cubic-bezier(0, 1, 0.31, 1.16) forwards;
+  animation-duration: 1.5s;
+  opacity: 0;
+  transform: translate(0, 50px);
+}
+.fadeInUpStart {
+  opacity: 0;
+  transform: translate(0, 50px);
+}
+
+@keyframes opacityUp {
+  0% {
+    opacity: 0;
+    transform: translate(0, 50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+// -------------------------
+
+.RectLeftSlideAnime {
+  overflow: hidden;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0);
+    transform: translate(0%, 0);
+    animation: RectLeftSlideAnime 0.5s ease-in-out 1s forwards;
+  }
+}
+
+.RectLeftSlideAnimeStart {
+  position: relative;
+  overflow: hidden;
+  &:after {
+    transform: translate(0%, 0);
+  }
+}
+@keyframes RectLeftSlideAnime {
+  0% {
+    transform: translate(0%, 0);
+  }
+
+  100% {
+    transform: translate(100%, 0);
+  }
+}
+
+// -------------------------
+
+.ParentRectLeftSlideAnime {
+  overflow: hidden;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0);
+    transform: translate(-100%, 0);
+    animation: ParentRectLeftSlideAnime 0.5s ease-in-out 1.5s forwards;
+  }
+}
+
+.ParentRectLeftSlideAnimeStart {
+  &:after {
+    transform: translate(-100%, 0);
+  }
+}
+
+@keyframes ParentRectLeftSlideAnime {
+  0% {
+    transform: translate(-100%, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}

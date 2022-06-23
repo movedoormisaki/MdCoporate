@@ -1,0 +1,844 @@
+@import '_mixin.scss';
+.black_bg {
+  position: relative;
+  .color_filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: color;
+  }
+  .black {
+    background-color: rgb(0, 0, 0, 0.95);
+  }
+  .white {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+}
+
+.full_bg {
+  background-repeat: repeat-y !important;
+  background-size: contain !important;
+  background-position: 50% 0% !important;
+  overflow: hidden;
+  @media screen and (max-width: 576px) {
+    background-size: 150% !important;
+  }
+}
+
+.first_view {
+  .container {
+    height: inherit;
+    position: relative;
+    .h1_ttl {
+      position: absolute;
+      @include liquidSize(bottom, 231, 120, initial);
+      @include liquidSize(left, 100, 10, initial);
+      @include liquidSize(width, 850, 330);
+      @media screen and (max-width: 576px) {
+        left: 50%;
+        transform: translateY(0%) translateX(-50%);
+        bottom: initial;
+        top: 150px;
+        margin: 0 auto;
+      }
+
+      .slice_items {
+        .top_slice,
+        .bottom_slice {
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          position: relative;
+          img {
+            background: #fff;
+            @include mb(15, 5);
+            padding: 10px 15px;
+
+            @media screen and (max-width: 576px) {
+              padding: 5px 10px;
+            }
+          }
+        }
+        .top_slice {
+          position: absolute;
+          -webkit-clip-path: polygon(70% 0, 100% 0%, 100% 100%, 30% 100%);
+          clip-path: polygon(70% 0, 100% 0%, 100% 100%, 30% 100%);
+          animation: slice_anime 0.5s cubic-bezier(0.17, 0.67, 0.51, 1.37) 1s forwards;
+          img:nth-child(1) {
+            background: #e0bd00;
+          }
+          @media screen and (max-width: 576px) {
+            animation: slice_anime_sp 0.5s cubic-bezier(0.17, 0.67, 0.51, 1.37) 1s forwards;
+          }
+        }
+        .bottom_slice {
+          -webkit-clip-path: polygon(0 0, 70% 0, 30% 100%, 0% 100%);
+          clip-path: polygon(0 0, 70% 0, 30% 100%, 0% 100%);
+        }
+      }
+      .h1_sub_ttl {
+        @include Oswald_font;
+        color: white;
+        @include font(55, 20, 55, 20, 500);
+        @media screen and (max-width: 576px) {
+          margin: 0 auto;
+        }
+      }
+    }
+    .scroll {
+      position: absolute;
+      bottom: 20px;
+      right: 15px;
+    }
+  }
+}
+
+@keyframes slice_anime {
+  0% {
+    top: 0px;
+    right: 0px;
+  }
+
+  100% {
+    top: -10px;
+    right: -20px;
+  }
+}
+
+@keyframes slice_anime_sp {
+  0% {
+    top: 0px;
+    right: 0px;
+  }
+
+  100% {
+    top: -5px;
+    right: -10px;
+  }
+}
+
+.concept_area {
+  width: 100%;
+  z-index: 55;
+  position: relative;
+
+  .concept_cont {
+    width: 100%;
+    height: 100%;
+
+    @include flex_center;
+    .concept_inner {
+      text-align: center;
+      color: #dddddd;
+      @include dnp_font;
+      h3 {
+        @include font(72, 40, 72, 40, 400);
+        @include mb(64, 40);
+      }
+      img {
+        @include mb(80, 40);
+        margin: 0 auto;
+      }
+      p {
+        @include font(24, 14, 96, 56, 400);
+        display: block;
+      }
+    }
+  }
+}
+
+.mission {
+  position: relative;
+  .yellow_rect {
+    position: absolute;
+    display: block;
+    top: 10%;
+    left: 0;
+    @include liquidSize(width, 1440, 260);
+    @include liquidSize(height, 800, 750);
+    background: transparent radial-gradient(closest-side at 50% 50%, #ffd700 0%, #ffd800 32%, #847000 100%) 0% 0%
+      no-repeat padding-box;
+    mix-blend-mode: exclusion;
+    opacity: 1;
+    z-index: 66;
+    @media screen and (max-width: 576px) {
+      top: 0%;
+    }
+  }
+  .mesh {
+    position: absolute;
+    top: -5%;
+    right: -2%;
+    @media screen and (max-width: 576px) {
+      top: -10%;
+      right: -120%;
+    }
+  }
+  .container {
+    @include container(1680px);
+    z-index: 77;
+    position: relative;
+    .inner {
+      position: relative;
+      @include liquidSize(padding-top, 220, 47);
+
+      .tommy_img {
+        z-index: 66;
+        position: absolute;
+        @include liquidSize(bottom, -280, -135);
+        @include liquidSize(left, -160, -135);
+        transform-origin: center;
+
+        .img_inner {
+          @include liquidSize(width, 560, 280);
+          @include liquidSize(height, 560, 280);
+          position: relative;
+          img {
+            position: relative;
+          }
+        }
+      }
+      .mission_ttl {
+        @include liquidSize(width, 1560, 355);
+        margin: 0 0 0 auto;
+        position: relative;
+
+        > img {
+          z-index: 66;
+          position: absolute;
+          top: -400px;
+          @include liquidSize(top, -230, -60);
+          @include liquidSize(left, -120, -44);
+          @include liquidSize(width, 1200, 424);
+
+          @media screen and (max-width: 576px) {
+            @include liquidSize(margin-top, -210, -80);
+          }
+        }
+
+        .mission_detail {
+          @include liquidSize(padding-top, 350, 166);
+          z-index: 66;
+          position: relative;
+          @include dnp_font;
+          @include custom_padding_container(240, 30);
+          @include liquidSize(padding-bottom, 120, 160);
+          color: #e0bd00;
+          h4 {
+            @include font(72, 40, 96, 72, 400);
+            @include mb(54, 66);
+            span {
+              @media screen and (max-width: 576px) {
+                @include span_br(before);
+              }
+            }
+          }
+          p {
+            @include font(16, 14, 64, 48, 400);
+            @include mb(75, 72);
+            color: #e0bd00;
+            span {
+              &:nth-child(1) {
+                @include span_br(after);
+              }
+            }
+            @media screen and (min-width: 576px) {
+              span {
+                &:nth-child(1) {
+                  @include span_br(after);
+                  @include span_br(before);
+                }
+                &:nth-child(2) {
+                  @include span_br(before);
+                }
+              }
+            }
+          }
+        }
+
+        .ttl_back {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 55;
+        }
+      }
+    }
+  }
+}
+
+.service {
+  position: relative;
+
+  .container {
+    @include container(1680px);
+    position: relative;
+    .service_svg {
+      position: absolute;
+      right: 0;
+      @include liquidSize(top, -360, -130);
+      @include liquidSize(width, 368, 70, 160);
+
+      @media screen and (max-width: 992px) {
+        transform: rotate(-90deg);
+        z-index: 255;
+        right: initial;
+        left: 75px;
+      }
+    }
+  }
+  .inner {
+    @include liquidSize(width, 1440, 325);
+    background: #000;
+    @include liquidSize(margin-top, 240, 120);
+    position: relative;
+
+    .service_detail {
+      position: relative;
+      @include dnp_font;
+      @include liquidSize(padding-top, 160, 120);
+      @include liquidSize(padding-left, 480, 40, 80);
+      @include liquidSize(padding-right, 300, 60, 300);
+      @include liquidSize(padding-bottom, 150, 80);
+
+      p {
+        @include font(24, 14, 56, 28, 400);
+        color: #b1b1b1;
+        max-width: 660px;
+        @include mb(100, 80);
+        text-align: justify;
+      }
+
+      img {
+        position: absolute;
+        @include liquidSize(right, -70, 80, 0);
+        @include liquidSize(width, 216, 50, 200);
+        top: 0;
+        @media screen and (max-width: 768px) {
+          @include liquidSize(width, 216, 60, 100);
+          @include liquidSize(right, -70, -25, 150);
+        }
+      }
+
+      .service_tags {
+        max-width: 660px;
+        .ttl {
+          font-size: 32px;
+          color: #e0bd00;
+          text-transform: lowercase;
+          @include mb(28, 40);
+        }
+        ul {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex-wrap: wrap;
+
+          li {
+            letter-spacing: 0px;
+            color: #b1b1b1;
+            padding-right: 10px;
+            cursor: pointer;
+            a {
+              @include font(16, 14, 45, 25, 400);
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+
+            &:after {
+              content: '|';
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .yoshimoto_img {
+    position: absolute;
+    @include liquidSize(right, -200, -90);
+    @include liquidSize(bottom, -200, -90);
+    .img_inner {
+      @include liquidSize(width, 400, 180);
+      @include liquidSize(height, 400, 180);
+      position: relative;
+      img {
+        position: relative;
+      }
+    }
+  }
+}
+
+.works {
+  @include pd(192, 82);
+  z-index: 5;
+  position: relative;
+  .container {
+    @include container;
+    @media screen and (max-width: 576px) {
+      padding: 0;
+    }
+    .cat_ttl {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      > img {
+        @include mb(55, 15);
+        @include liquidSize(width, 267, 110);
+      }
+      p {
+        @include deco_txt;
+      }
+    }
+
+    .inner {
+      @include pd(80, 40);
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include custom_gap(0, 0, 80, 40);
+        a {
+          height: inherit;
+          width: inherit;
+        }
+        li {
+          transition: 0.5s all ease-in-out;
+          @include liquidSize(width, 400, 200);
+          @include liquidSize(height, 720, 360);
+          position: relative;
+          margin: 0 auto;
+          .close_inner {
+            height: inherit;
+            width: inherit;
+            position: relative;
+            @include flex_center;
+            .works_bg,
+            .works_img {
+              height: inherit;
+              width: inherit;
+
+              .img_inner {
+                height: inherit;
+                width: inherit;
+                position: relative;
+                img {
+                  position: relative;
+                  object-fit: cover;
+                }
+              }
+            }
+            .works_img {
+              height: 95%;
+              position: absolute;
+              @include flex-center;
+            }
+          }
+          .open_inner {
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 11;
+            @include flex_center;
+            .company_name {
+              @include dnp_font;
+              text-align: center;
+              p {
+                @include deco_txt;
+                color: #ffffff;
+                @include mb(36, 40);
+              }
+              h6 {
+                @include font(32, 18, 64, 36, 400);
+                color: #ffffff;
+              }
+            }
+          }
+          &:hover {
+            .open_inner {
+              opacity: 1;
+              height: inherit;
+              width: inherit;
+            }
+          }
+        }
+      }
+    }
+    .center {
+      @include flex-center;
+      width: 100%;
+    }
+  }
+}
+
+.member {
+  position: relative;
+  @include pd(50, 25);
+  @include liquidSize(padding-top, 50, 230);
+  @include liquidSize(padding-bottom, 280, 140);
+
+  .yellow_div {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    z-index: 1;
+    @media screen and (max-width: 576px) {
+      top: -20%;
+    }
+    .yellow_bg {
+      background: transparent linear-gradient(90deg, #847000 0%, #ffd800 50%, #847000 100%) 0% 0% no-repeat padding-box;
+      mix-blend-mode: exclusion;
+      width: 100%;
+      @include liquidSize(height, 1600, 1050);
+    }
+    .triangle_area {
+      position: relative;
+      @include liquidSize(height, 300, 60);
+    }
+    .keiji_img {
+      position: absolute;
+      z-index: 4;
+      bottom: 0;
+      right: -3%;
+      @include liquidSize(width, 640, 240);
+      @include liquidSize(height, 800, 320);
+      @media screen and (max-width: 576px) {
+        bottom: -5%;
+      }
+      .img_inner {
+        width: 100%;
+        height: inherit;
+        position: relative;
+        img {
+          width: 100%;
+          height: inherit;
+          object-fit: contain;
+          position: relative;
+        }
+      }
+    }
+  }
+  .misaki_img {
+    position: absolute;
+    z-index: 4;
+    @include liquidSize(top, 0, -50);
+    @include liquidSize(left, -50, -70);
+    @include liquidSize(width, 852, 320, 405);
+    @include liquidSize(height, 852, 360);
+    @media screen and (max-width: 576px) {
+    }
+    .img_inner {
+      width: inherit;
+      height: inherit;
+      position: relative;
+      img {
+        width: 100%;
+        height: inherit;
+        object-fit: contain;
+        position: relative;
+      }
+    }
+  }
+  .container {
+    z-index: 5;
+    position: relative;
+    @include container(960px);
+    @media screen and (max-width: 576px) {
+      padding: 0;
+    }
+    .cat_ttl {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      > img {
+        @include mb(55, 15);
+        @include liquidSize(width, 374, 149);
+      }
+      p {
+        @include deco_txt;
+        color: #000;
+        &::after,
+        &::before {
+          background-color: #000;
+        }
+      }
+    }
+    .inner {
+      @include pd(80, 40);
+      ul {
+        display: flex;
+        justify-content: center;
+        @include custom_gap(0, 0, 40, 60);
+        li {
+          width: 160px;
+          height: 320px;
+          overflow: hidden;
+          @media screen and (max-width: 786px) {
+            overflow: initial;
+            width: 120px;
+            height: 240px;
+            margin: 0 auto;
+          }
+          a {
+            width: inherit;
+            height: inherit;
+            position: relative;
+            .close_inner {
+              width: inherit;
+              height: inherit;
+              position: absolute;
+              top: 0;
+              left: 0;
+
+              .member_name {
+                @include dnp_font;
+                width: inherit;
+                height: inherit;
+                z-index: 15;
+                color: #ffffff;
+                writing-mode: vertical-rl;
+                position: relative;
+                @include flex-center;
+                flex-direction: column;
+                opacity: 1;
+                transition: 0.3s all ease-in-out;
+                img {
+                  position: absolute;
+                  @include absolute-center;
+                  z-index: 12;
+                }
+                p {
+                  @include font(16, 14, 32, 28, 400);
+                  z-index: 16;
+                  position: absolute;
+                  right: 20%;
+                  top: 10%;
+                  letter-spacing: 0px;
+                  @media screen and (max-width: 786px) {
+                    color: #000;
+                    right: -25%;
+                    top: 0;
+                  }
+                }
+                h6 {
+                  font-size: 32px;
+                  z-index: 17;
+                  letter-spacing: 5px;
+                  @media screen and (max-width: 786px) {
+                    font-size: 28px;
+                    color: #000;
+                    position: absolute;
+                    bottom: 0;
+                    left: -35%;
+                  }
+                }
+              }
+              .door_back {
+                width: inherit;
+                height: inherit;
+                background-color: #000;
+                transform: translate(0);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                transition: 0.2s all ease-in-out;
+              }
+            }
+            .open_inner {
+              width: inherit;
+              height: inherit;
+              .member_bg {
+                width: inherit;
+                height: inherit;
+              }
+            }
+            .open_door {
+              width: inherit;
+              height: inherit;
+              position: absolute;
+              top: 0;
+              left: 0;
+              overflow: hidden;
+              z-index: 15;
+              .door_back {
+                background-color: #000;
+                width: inherit;
+                height: inherit;
+                @include flex-center;
+                transition: 0.2s all ease-in-out;
+                img {
+                  width: 80%;
+                }
+              }
+            }
+            &:hover {
+              .door_back {
+                transform: translateX(-100%);
+              }
+              .member_name {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .center {
+      @include flex-center;
+      width: 100%;
+    }
+  }
+}
+
+.blog {
+  position: relative;
+  z-index: 11;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include liquidSize(padding-top, 340, 180);
+
+  @media screen and (max-width: 992px) {
+    align-items: flex-start;
+  }
+
+  .blog_word {
+    @include liquidSize(left, 195, 22);
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    position: absolute;
+    @include liquidSize(width, 398, 232);
+
+    @media screen and (max-width: 992px) {
+      left: initial;
+      position: relative;
+      transform: translate(0%, 0%) rotate(0deg);
+      text-align: left;
+      margin-bottom: 44px;
+      @include liquidSize(padding-left, 56, 22, 70);
+    }
+  }
+  .container {
+    @include container(960px);
+    @include liquidSize(max-width, 960, 335);
+    @include liquidSize(margin-bottom, 80, 40);
+    @media screen and (max-width: 576px) {
+      max-width: 100%;
+    }
+    > ul {
+      display: flex;
+      justify-content: center;
+      @include custom_gap(0, 40, 20, 0);
+      @media screen and (max-width: 576px) {
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+      }
+      div.blog_thumb {
+        @include liquidSize(width, 300, 240);
+        @include liquidSize(height, 191, 150);
+        @media screen and (max-width: 576px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .btnArea {
+    width: 100%;
+    @include flex-center;
+  }
+}
+
+.news {
+  @include liquidSize(padding-bottom, 240, 120);
+  .container {
+    @include container(1680px);
+    position: relative;
+
+    .news_word {
+      right: 0;
+      top: 0;
+      position: absolute;
+      @include liquidSize(width, 345, 66, 120);
+      @media screen and (max-width: 786px) {
+        position: relative;
+        transform: rotate(-90deg) translate(-30px, 15px);
+      }
+    }
+    ul {
+      @include container(960px);
+      position: relative;
+      @include liquidSize(padding-top, 200, 62);
+      @include liquidSize(padding-bottom, 230, 112);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      @include custom_gap(73, 40, 0, 0);
+      li {
+        @include liquidSize(max-width, 850, 335, 700);
+        @include dnp_font;
+        color: #bababa;
+        transition: 0.2s all ease-in-out;
+        @media screen and (max-width: 576px) {
+          max-width: auto;
+        }
+        a {
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+  .container {
+    @include container;
+    .contact_btn {
+      width: 100%;
+      position: relative;
+      z-index: 111;
+      @include flex-center;
+      cursor: pointer;
+      transition: 0.2s all ease-in-out;
+      &:hover {
+        transform: scale(1.05);
+        transform-origin: center;
+      }
+      a {
+        .rect_btn {
+          @include liquidSize(width, 640, 335);
+          height: 80px;
+          @include flex-center;
+          background: transparent radial-gradient(closest-side at 50% 50%, #ffd700 0%, #ffd800 32%, #b19a14 100%) 0% 0%
+            no-repeat padding-box;
+          .inner {
+            border: 2px solid #000000;
+            @include liquidSize(width, 636, 329);
+            height: 76px;
+            @include flex-center;
+            @include font(24, 22, 32, 24, 800);
+            @include Oswald_font;
+            color: #000000;
+            letter-spacing: 12px;
+          }
+        }
+      }
+    }
+  }
+}

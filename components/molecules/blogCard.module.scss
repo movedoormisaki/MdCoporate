@@ -1,0 +1,106 @@
+@import 'styles/_mixin.scss';
+.blog_card {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .blog_a {
+    height: 100%;
+    div.blog_thumb {
+      width: 100%;
+      @include liquidSize(height, 191, 150);
+      @include liquidSize(width, 300, 240);
+      @include flex-center;
+      position: relative;
+      margin-bottom: 7px;
+      @media screen and (max-width: 576px) {
+        width: 100%;
+      }
+
+      .img_inner {
+        display: block;
+        position: relative;
+        width: inherit;
+        height: inherit;
+        background-color: rgba(0, 0, 0, 0.2);
+
+        img {
+          display: block;
+          object-fit: cover;
+          width: inherit;
+          height: inherit;
+        }
+      }
+      .border {
+        @include liquidSize(width, 286, 228);
+        @include liquidSize(height, 177, 144);
+        border: 1px solid #ffffff;
+        position: absolute;
+        @media screen and (max-width: 576px) {
+          width: 98%;
+        }
+      }
+    }
+
+    .blog_detail {
+      height: auto;
+      background-color: #edebe8;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 12px 14px;
+      flex-grow: 1;
+      .blog_sub_ttl {
+        display: block;
+        @include font(16, 13, 32, 16, 400);
+        @include dnp_font;
+        padding-bottom: 7px;
+        height: auto;
+        text-align: left;
+      }
+      > ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        @include custom_gap(10, 5, 15, 5);
+        li {
+          color: #aaaaaa;
+          @include dnp_font;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.blog_card.blog_page {
+  @include liquidSize(width, 440, 165);
+  div.blog_thumb {
+    width: 100%;
+    @include liquidSize(height, 280, 130);
+    .border {
+      @include liquidSize(width, 420, 158);
+      @include liquidSize(height, 260, 124);
+    }
+  }
+
+  .blog_detail {
+    @include padding-full(20, 20, 15, 10);
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    //@include liquidSize(height, 100, 100);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    ul {
+      li {
+        font-size: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,256 @@
+@import '_mixin.scss';
+
+.container {
+  @include container(1280px);
+  @include liquidSize(max-width, 1280, auto);
+}
+.post_top {
+  position: relative;
+  .post_img {
+    @include liquidSize(height, 560, 160);
+    position: relative;
+    width: 100%;
+    .img_inner {
+      height: inherit;
+      width: inherit;
+      img {
+        object-fit: cover;
+        height: inherit;
+        width: inherit;
+        z-index: 1;
+        position: relative;
+      }
+      .container {
+        position: relative;
+        height: inherit;
+        width: inherit;
+        .svg {
+          @include liquidSize(width, 420, 162);
+          height: auto;
+          position: absolute;
+          bottom: 0;
+          @include liquidSize(left, 5, 15);
+          z-index: 111;
+          object-fit: cover;
+          @include mb(28, 10);
+        }
+      }
+    }
+  }
+}
+.member_cont {
+  @include pd(160, 80);
+  .member_ttl {
+    @include dnp_font;
+    h1 {
+      @include font(32, 32, 40, 48, 400);
+      @include mb(68, 40);
+      color: #dddddd;
+      span {
+        @media screen and (max-width: 576px) {
+          @include span_br(after);
+          @include span_br(before);
+        }
+      }
+    }
+    p {
+      @include font(16, 14, 48, 35, 400);
+      color: #dddddd;
+      @include liquidSize(padding-left, 80, 0);
+      @include mb(20, 10);
+    }
+  }
+
+  .member_inner {
+    @include pd(130, 85);
+    @include dnp_font;
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      @include custom_gap(120, 50, 30, 0);
+
+      @media screen and (max-width: 576px) {
+        flex-direction: column;
+        flex-wrap: initial;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        @include liquidSize(width, 370, 320);
+      }
+      li a {
+        @include liquidSize(width, 370, 320);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        @media screen and (max-width: 576px) {
+          width: 100%;
+        }
+      }
+      li {
+        @include liquidSize(width, 370, 320);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        @media screen and (max-width: 576px) {
+          width: 100%;
+        }
+        &:hover {
+          section {
+            &:nth-child(1) {
+              .img_inner {
+                .open_img {
+                  img {
+                    opacity: 0;
+                  }
+                }
+                .hover {
+                  img {
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+        section {
+          &:nth-child(1) {
+            @include liquidSize(width, 160, 135);
+            @include liquidSize(height, 160, 135);
+            position: relative;
+            @include liquidSize(margin-right, 30, 15);
+            .img_inner {
+              width: inherit;
+              height: inherit;
+              position: relative;
+              .open_img {
+                img {
+                  width: inherit;
+                  height: inherit;
+                  object-fit: cover;
+                  border-radius: 50%;
+                  position: relative;
+                  opacity: 1;
+                  transition: 0.3s all ease-in-out;
+                }
+              }
+              .hover {
+                img {
+                  width: inherit;
+                  height: inherit;
+                  object-fit: cover;
+                  border-radius: 50%;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  opacity: 0;
+                  transition: 0.3s all ease-in-out;
+                }
+              }
+              .noImg {
+                width: inherit;
+                height: inherit;
+                background-color: #171100;
+                @include flex-center;
+                border-radius: 50%;
+                p {
+                  color: #dddddd;
+                  @include font(24, 16, 48, 32, 400);
+                }
+              }
+            }
+          }
+          &:nth-child(2) {
+            color: #dddddd;
+            .sub_name {
+              @include font(14, 10, 24, 12, 400);
+              @include mb(6, 2);
+              padding-left: 2px;
+            }
+            .name {
+              @include font(40, 32, 52, 38, 400);
+            }
+            .name_en {
+              @include font(10, 8, 24, 16, 400);
+              @include liquidSize(padding-bottom, 8, 5);
+              @include mb(8, 5);
+              padding-left: 2px;
+              border-bottom: 0.5px #dddddd solid;
+            }
+            .one_word {
+              color: #555555;
+              @include font(16, 14, 28, 24, 400);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.memberPost {
+  background: #000;
+  .header_ttl {
+    @include liquidSize(height, 200, 100);
+    background: #000;
+    display: flex;
+    align-items: center;
+    h1 {
+      @include font(72, 24, 48, 32, 400);
+      @include dnp_font;
+      color: #dddddd;
+      @include liquidSize(margin-left, 240, 40);
+    }
+  }
+  .post_top {
+    @include liquidSize(height, 720, 225);
+    object-position: top;
+    .post_img {
+      height: inherit;
+    }
+    .main_ttl {
+      width: 100%;
+      height: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 111;
+      .container {
+        @include container(1280px);
+        height: inherit;
+        @include flex-center;
+        .ttl {
+          width: 50%;
+          margin: 0 0 0 auto;
+          color: #dddddd;
+          @include dnp_font;
+          .sub_name {
+            @include font(26, 12, 48, 20, 400);
+            @include mb(32, 5);
+            padding-left: 1px;
+          }
+          .name {
+            @include font(72, 32, 52, 38, 400);
+            @include mb(24, 5);
+          }
+          .name_en {
+            @include font(16, 8, 32, 16, 400);
+            @include liquidSize(padding-bottom, 37, 12);
+            border-bottom: 0.5px #dddddd solid;
+            @include mb(37, 12);
+            width: 70%;
+            max-width: 400px;
+          }
+          .one_word {
+            @include font(30, 14, 48, 24, 400);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import 'styles/_mixin.scss';
+
+.backbtn {
+  @include pd(75, 30);
+  a {
+    @include dnp_gothic_font;
+
+    @include font(24, 20, 60, 24, 400);
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.member_page {
+  color: white;
+}
