@@ -38,6 +38,7 @@ const Contact: NextPage = ({ respost }: any) => {
   return (
     <>
       <Head>
+        
         <title>{title}</title>
         <meta property="description" content={description} />
         <meta property="og:title" content={title} />

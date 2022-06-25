@@ -15,7 +15,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export default ({ newsData }: newsData) => {
+const TopNews = ({ newsData }: newsData) => {
   return (
     <>
       <div className={styles.news}>
@@ -50,3 +50,5 @@ export default ({ newsData }: newsData) => {
     </>
   );
 };
+
+export default TopNews;
