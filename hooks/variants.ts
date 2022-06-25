@@ -14,15 +14,14 @@ export const animationContainer: Variants = {
 export const fadeInUp: Variants = {
   hidden: {
     opacity: 0,
-    y: 100,
+    y: 50,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring',
-      duration: 1,
-      stiffness: 100,
+      duration: 0.7,
+      ease: [0.075, 0.82, 0.165, 1],
     },
   },
 };
@@ -150,7 +149,7 @@ export const blackBox = {
       ease: [0.87, 0, 0.13, 1],
     },
   },
-  
+
   finish: {
     y: '0',
     transition: {

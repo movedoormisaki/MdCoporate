@@ -8,8 +8,10 @@ import { useEffect } from 'react';
 
 const Mission = () => {
   const { width } = getWindowSize();
-  const [ref, inView] = useInView({
+
+  const [missionRef, inView] = useInView({
     threshold: [0.25],
+    triggerOnce: true,
   });
 
   console.log('inview', inView);
@@ -23,7 +25,17 @@ const Mission = () => {
           className={`${inView ? animation.RectLeftSlideAnime : animation.RectLeftSlideAnimeStart}
          ${styles.yellow_rect}`}
         ></div>
-        <img className={styles.mesh} src="./svg/mesh_bg.svg" alt="背景のメッシュ素材" />
+        <div className={styles.mesh_img_inner}>
+          <Image
+            width={1512}
+            height={1512}
+            layout="responsive"
+            className={styles.mesh}
+            src="/svg/mesh_bg.svg"
+            alt="背景のメッシュ素材"
+          />
+        </div>
+
         <div className={styles.container}>
           <div className={styles.inner}>
             <div className={styles.tommy_img}>
@@ -31,6 +43,7 @@ const Mission = () => {
                 <Image src="/img/tommy_img.png" layout="fill" alt="諸富稜" />
               </div>
             </div>
+            <div ref={missionRef}></div>
 
             <div className={styles.mission_ttl}>
               <div
@@ -46,7 +59,6 @@ const Mission = () => {
               />
               <div className={styles.mission_detail}>
                 <h4
-                  ref={ref}
                   style={{ animationDelay: '1.5s' }}
                   className={`${inView ? animation.fadeInUp : animation.fadeInUpStart}`}
                 >

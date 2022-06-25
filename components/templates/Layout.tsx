@@ -80,16 +80,21 @@ const Layout = ({ children }: Props) => {
         `,
           }}
         />
+
+        <script
+          id="_bownow_ts"
+          dangerouslySetInnerHTML={{
+            __html: `
+          var _bownow_ts = document.createElement('script'); _bownow_ts.charset = 'utf-8'; _bownow_ts.src =
+          'https://contents.bownow.jp/js/UTC_cba3489d8ea3e5b5572d/trace.js';
+          document.getElementsByTagName('head')[0].appendChild(_bownow_ts);
+
+        `,
+          }}
+        />
       </Head>
       {/* <Transition /> */}
       <Header nav={nav_items} link={link_items}></Header>
-
-      {/* {(() => {
-        if (pageLoading) {
-          return <PageTransition />;
-        }
-      })()} */}
-
       <motion.div style={{ overflow: 'hidden', position: 'relative' }}>{children}</motion.div>
       <Footer nav={nav_items} link={link_items}></Footer>
     </>
@@ -97,64 +102,3 @@ const Layout = ({ children }: Props) => {
 };
 
 export default Layout;
-
-const Transition = () => {
-  const { width, height } = getWindowSize();
-  return (
-    <motion.div
-      style={{
-        width: width + 'px',
-        height: height + 'px',
-        position: 'fixed',
-        background: '#000',
-        zIndex: '9999',
-        top: '0',
-        left: '0',
-      }}
-      variants={blackBox}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    ></motion.div>
-  );
-};
-
-const PageTransition = () => {
-  const { width, height } = getWindowSize();
-  return (
-    <div
-      style={{
-        width: width + 'px',
-        height: height + 'px',
-        position: 'fixed',
-        background: '#000',
-        zIndex: '9999',
-        top: '0',
-        left: '0',
-      }}
-      className={styles.pageTransition}
-    ></div>
-  );
-};
-
-const blackBox: Variants = {
-  initial: {
-    y: '0',
-  },
-
-  animate: {
-    y: '-100%',
-    transition: {
-      duration: 1.5,
-      ease: [0.87, 0, 0.13, 1],
-    },
-  },
-
-  exit: {
-    y: '0',
-    transition: {
-      duration: 1.5,
-      ease: [0.87, 0, 0.13, 1],
-    },
-  },
-};

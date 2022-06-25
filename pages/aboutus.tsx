@@ -17,7 +17,7 @@ import {
   childFadeItems,
 } from '../hooks/variants';
 
-const aboutUs = () => {
+const aboutUs: NextPage = () => {
   const description =
     'MOVEDOORのMISSIONは"広報PRで事業成長を実現する"というものです。クライアントの集客・採用・ブランディングを勝利に導きます。また学生起業した道のりやワッと驚くミッションまでMOVEDOORの歴史を入れています。';
   const title = 'ABOUT US -私たちについて-';

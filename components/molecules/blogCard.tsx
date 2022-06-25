@@ -31,9 +31,10 @@ const BlogCard = (props: blogData) => {
   const { blogData, index } = props;
   const categoryTag = blogData.fields.categoryTag;
   const router = useRouter().pathname;
+
   return (
     <>
-      <li className={router == '/blog' ? `${styles.blog_card} ${styles.blog_page}` : styles.blog_card} key={index}>
+      <div className={router == '/blog' ? `${styles.blog_card} ${styles.blog_page}` : styles.blog_card}>
         <Link href={`/blog/${blogData.fields.slug}`}>
           <a className={styles.blog_a}>
             <div className={styles.blog_thumb}>
@@ -52,7 +53,7 @@ const BlogCard = (props: blogData) => {
             </div>
           </a>
         </Link>
-      </li>
+      </div>
     </>
   );
 };

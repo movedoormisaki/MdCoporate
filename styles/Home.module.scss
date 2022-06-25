@@ -167,19 +167,37 @@
     mix-blend-mode: exclusion;
     opacity: 1;
     z-index: 66;
+    overflow: hidden;
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgb(0, 0, 0);
+      transform: translate(0, 0);
+    }
     @media screen and (max-width: 576px) {
       top: 0%;
     }
   }
-  .mesh {
+  .mesh_img_inner {
     position: absolute;
     top: -5%;
     right: -2%;
+    width: 1512px;
+    height: 1512px;
     @media screen and (max-width: 576px) {
       top: -10%;
       right: -120%;
     }
+    .mesh {
+      position: relative;
+      object-fit: cover;
+    }
   }
+
   .container {
     @include container(1680px);
     z-index: 77;
@@ -187,7 +205,6 @@
     .inner {
       position: relative;
       @include liquidSize(padding-top, 220, 47);
-
       .tommy_img {
         z-index: 66;
         position: absolute;
@@ -208,12 +225,11 @@
         @include liquidSize(width, 1560, 355);
         margin: 0 0 0 auto;
         position: relative;
-
         > img {
           z-index: 66;
           position: absolute;
           top: -400px;
-          @include liquidSize(top, -230, -60);
+          @include liquidSize(top, -230, 60);
           @include liquidSize(left, -120, -44);
           @include liquidSize(width, 1200, 424);
 
@@ -277,21 +293,22 @@
 
 .service {
   position: relative;
-
   .container {
     @include container(1680px);
     position: relative;
-    .service_svg {
+    .service_img_inner {
       position: absolute;
       right: 0;
       @include liquidSize(top, -360, -130);
       @include liquidSize(width, 368, 70, 160);
-
       @media screen and (max-width: 992px) {
         transform: rotate(-90deg);
         z-index: 255;
         right: initial;
         left: 75px;
+      }
+      .img {
+        position: relative;
       }
     }
   }
@@ -316,15 +333,19 @@
         @include mb(100, 80);
         text-align: justify;
       }
-
-      img {
+      .kyousousya_img_inner {
         position: absolute;
         @include liquidSize(right, -70, 80, 0);
         @include liquidSize(width, 216, 50, 200);
         top: 0;
+
         @media screen and (max-width: 768px) {
           @include liquidSize(width, 216, 60, 100);
           @include liquidSize(right, -70, -25, 150);
+        }
+        img {
+          position: relative;
+          object-fit: cover;
         }
       }
 
@@ -735,6 +756,7 @@
       @include liquidSize(padding-left, 56, 22, 70);
     }
   }
+
   .container {
     @include container(960px);
     @include liquidSize(max-width, 960, 335);

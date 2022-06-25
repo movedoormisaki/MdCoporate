@@ -6,7 +6,7 @@
   position: relative;
 
   span {
-    animation: opacity 0.1s ease-in-out 1s forwards;
+    animation: opacity 0.1s ease-in-out 0.5s forwards;
     position: relative;
     display: block;
     opacity: 0;
@@ -87,7 +87,6 @@
 
 .RectLeftSlideAnime {
   overflow: hidden;
-  position: relative;
   &:after {
     content: '';
     position: absolute;
@@ -96,21 +95,21 @@
     top: 0;
     left: 0;
     background: rgb(0, 0, 0);
-    transform: translate(0%, 0);
+    transform: translate(0, 0);
     animation: RectLeftSlideAnime 0.5s ease-in-out 1s forwards;
   }
 }
 
 .RectLeftSlideAnimeStart {
-  position: relative;
   overflow: hidden;
   &:after {
-    transform: translate(0%, 0);
+    transform: translate(0, 0);
   }
 }
+
 @keyframes RectLeftSlideAnime {
   0% {
-    transform: translate(0%, 0);
+    transform: translate(0, 0);
   }
 
   100% {

@@ -6,27 +6,72 @@ import { fadeInUp } from '../../hooks/variants';
 import RectBtn from '../atoms/rectBtn';
 import { workTag } from '../../lib/type';
 import Link from 'next/link';
+import { useInView } from 'react-intersection-observer';
+import animation from '../../hooks/animation.module.scss';
 
 const Service = ({ workTag }: workTag) => {
   const { width } = getWindowSize();
+
+  const [worksRef, inView] = useInView({
+    threshold: [0.25],
+    triggerOnce: true,
+  });
+
   return (
     <>
-      <div className={styles.service}>
+      <div ref={worksRef} className={styles.service}>
         <div className={styles.container}>
-          <img className={styles.service_svg} src="./svg/service_bg_word.svg" alt="Service" />
+          <div className={styles.service_img_inner}>
+            <Image
+              width={368}
+              height={1408}
+              layout="responsive"
+              className={styles.mesh}
+              src="/svg/service_bg_word.svg"
+              alt="Service"
+            />
+          </div>
+          {/* <img className={styles.service_svg} src="./svg/service_bg_word.svg" alt="Service" /> */}
         </div>
 
         <div className={styles.inner}>
           <div className={styles.service_detail}>
-            {(() => {
-              if (width >= 768) {
-                return <img src="./svg/cool_ttl.svg" alt="共創者" />;
-              } else {
-                return <img src="./svg/cool_ttl-sp.svg" alt="共創者" />;
-              }
-            })()}
+            <div className={`${inView ? animation.fadeInUp : animation.fadeInUpStart} ${styles.kyousousya_img_inner}`}>
+              {(() => {
+                if (width >= 768) {
+                  return (
+                    <>
+                      <Image
+                        width={216}
+                        height={522}
+                        layout="responsive"
+                        className={styles.mesh}
+                        src="/svg/cool_ttl.svg"
+                        alt="共創者"
+                      />
+                    </>
+                  );
+                } else {
+                  return (
+                    <>
+                      <Image
+                        width={56}
+                        height={270}
+                        layout="responsive"
+                        className={styles.mesh}
+                        src="/svg/cool_ttl-sp.svg"
+                        alt="共創者"
+                      />
+                    </>
+                  );
+                }
+              })()}
+            </div>
 
-            <p>
+            <p
+              style={{ animationDelay: '0.5s' }}
+              className={`${inView ? animation.fadeInUp : animation.fadeInUpStart}`}
+            >
               ホームページや動画、ＷＥＢ広告などの広報ＰＲに関わる施策を、毎回別の会社に依頼していませんか？
               <br />
               <br />
@@ -36,7 +81,10 @@ const Service = ({ workTag }: workTag) => {
               課題の分析、広報戦略の構築、それに沿った制作・広告。
               これらを一貫して手掛け、パートナー企業様にとって最大限の効果を実現します。
             </p>
-            <div className={styles.service_tags}>
+            <div
+              style={{ animationDelay: '1.5s' }}
+              className={`${inView ? animation.fadeInUp : animation.fadeInUpStart} ${styles.service_tags}`}
+            >
               <p className={styles.ttl}>what we do</p>
               <ul>
                 {workTag.map((items: any, index: number) => {
