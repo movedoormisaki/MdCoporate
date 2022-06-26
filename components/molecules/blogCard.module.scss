@@ -24,11 +24,14 @@
         height: inherit;
         background-color: rgba(0, 0, 0, 0.2);
 
-        img {
-          display: block;
-          object-fit: cover;
-          width: inherit;
-          height: inherit;
+        span {
+          height: 100% !important;
+          img {
+            @include liquidSize(height, 191, 150);
+            @include liquidSize(width, 300, 240);
+            display: block;
+            object-fit: cover;
+          }
         }
       }
       .border {

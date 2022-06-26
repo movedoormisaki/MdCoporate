@@ -14,12 +14,15 @@
       height: inherit;
       width: inherit;
       position: relative;
-      img {
-        object-fit: cover;
-        height: inherit;
-        width: inherit;
-        z-index: 99;
-        position: relative;
+      span {
+        height: 100% !important;
+        img {
+          object-fit: cover;
+          height: inherit;
+          width: inherit;
+          z-index: 99;
+          position: relative;
+        }
       }
     }
   }

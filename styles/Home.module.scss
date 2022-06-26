@@ -20,6 +20,7 @@
 }
 
 .full_bg {
+  background: #000;
   background-image: url('/img/bg_img-pc.jpg');
   background-repeat: repeat-y !important;
   background-size: contain !important;
@@ -28,6 +29,68 @@
   @media screen and (max-width: 576px) {
     background-image: url('/img/bg_img-sp.jpg');
     background-size: 150% !important;
+  }
+  &:after {
+    content: '';
+    z-index: 1;
+    pointer-events: none;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    animation: fadeOpacity 2s cubic-bezier(0, 1, 0.31, 1.16) 3s forwards;
+  }
+}
+
+@keyframes fadeOpacity {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+div.animeBack {
+  overflow: hidden;
+  position: relative;
+  &:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &:nth-child(1) {
+    &:after {
+      animation: animeBack 1s cubic-bezier(0, 1, 0.31, 1.16) 1s forwards;
+    }
+  }
+  &:nth-child(2) {
+    &:after {
+      animation: animeBack 1s cubic-bezier(0, 1, 0.31, 1.16) 1.2s forwards;
+    }
+  }
+  &.sub_ttl_inner {
+    &:after {
+      animation: animeBack 1s cubic-bezier(0, 1, 0.31, 1.16) 1.5s forwards;
+    }
+  }
+}
+
+@keyframes animeBack {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
   }
 }
 
@@ -40,6 +103,7 @@
       @include liquidSize(bottom, 231, 120, initial);
       @include liquidSize(left, 100, 10, initial);
       @include liquidSize(width, 850, 330);
+      z-index: 111;
       @media screen and (max-width: 576px) {
         left: 50%;
         transform: translateY(0%) translateX(-50%);
@@ -69,12 +133,12 @@
           position: absolute;
           -webkit-clip-path: polygon(70% 0, 100% 0%, 100% 100%, 30% 100%);
           clip-path: polygon(70% 0, 100% 0%, 100% 100%, 30% 100%);
-          animation: slice_anime 0.5s cubic-bezier(0.17, 0.67, 0.51, 1.37) 1s forwards;
+          animation: slice_anime 0.5s cubic-bezier(0.71, 0, 0.21, 1.71) 2s forwards;
           img:nth-child(1) {
             background: #e0bd00;
           }
           @media screen and (max-width: 576px) {
-            animation: slice_anime_sp 0.5s cubic-bezier(0.17, 0.67, 0.51, 1.37) 1s forwards;
+            animation: slice_anime_sp 0.5s cubic-bezier(0.71, 0, 0.21, 1.71) 2s forwards;
           }
         }
         .bottom_slice {
@@ -106,8 +170,8 @@
   }
 
   100% {
-    top: -10px;
-    right: -20px;
+    top: -15px;
+    right: -30px;
   }
 }
 

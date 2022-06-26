@@ -14,8 +14,6 @@ const Mission = () => {
     triggerOnce: true,
   });
 
-  console.log('inview', inView);
-
   useEffect(() => {}, []);
 
   return (

@@ -26,52 +26,20 @@ export interface workData {
       }[];
     };
   };
-  index: number;
+  index?: number;
   count?: any;
 }
 
 const WorkCard = (props: workData) => {
-  const { workData, index, count } = props;
+  const { workData, index } = props;
   const { width } = getWindowSize();
-  const plus_n = 9;
-
-  const counter: any[] = [
-    [1, 1, 3, 2],
-    [1, 2, 5, 3],
-    [1, 3, 4, 4],
-    [3, 1, 7, 2],
-    [5, 2, 8, 3],
-    [4, 3, 6, 4],
-    [7, 1, 10, 2],
-    [8, 2, 10, 3],
-    [6, 3, 10, 4],
-  ];
-
-  const [AmariN, setAmariN] = useState(0);
-  const [Con, setCon] = useState(0);
-
-  console.log('count =', count);
-
-  useEffect(() => {
-    const Amari = count / 9;
-    setAmariN(0);
-    if (count > 8) {
-      setAmariN(AmariN + 9 * Math.floor(Amari));
-      setCon(count - 9 * Math.floor(Amari));
-    } else {
-      setCon(count + 9 * Math.floor(Amari));
-    }
-    // console.log('AmariN =', AmariN, 'amari = ', Math.floor(Amari));
-  }, []);
-
-  const Counter1 = counter[Con][0] + AmariN;
-  const Counter2 = counter[Con][1];
-  const Counter3 = counter[Con][2] + AmariN;
-  const Counter4 = counter[Con][3];
 
   return (
     <>
-      <li className={`${styles.works_li} liElement`} key={index}>
+      <div
+        key={index}
+        className={`${styles.works_li}`}
+      >
         <Link href={`/works/${workData.fields.workTtl}`}>
           <a className={styles.works_a}>
             <div className={styles.close_inner}>
@@ -107,12 +75,7 @@ const WorkCard = (props: workData) => {
             </div>
           </a>
         </Link>
-      </li>
-      {/* <style jsx>{`
-        .liElement:nth-child(${count + 1}) {
-          grid-area: ${Counter1} / ${Counter2} / ${Counter3} / ${Counter4};
-        }
-      `}</style> */}
+      </div>
     </>
   );
 };

@@ -26,8 +26,6 @@ const TopMembers = ({ memberData }: memberType) => {
     triggerOnce: true,
   });
 
-  console.log('missionRef', inView);
-
   return (
     <>
       <div ref={memberRef} className={`${styles.member} top_member`}>

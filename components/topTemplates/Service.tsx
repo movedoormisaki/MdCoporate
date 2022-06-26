@@ -31,7 +31,6 @@ const Service = ({ workTag }: workTag) => {
               alt="Service"
             />
           </div>
-          {/* <img className={styles.service_svg} src="./svg/service_bg_word.svg" alt="Service" /> */}
         </div>
 
         <div className={styles.inner}>
@@ -56,7 +55,7 @@ const Service = ({ workTag }: workTag) => {
                     <>
                       <Image
                         width={56}
-                        height={270}
+                        height={330}
                         layout="responsive"
                         className={styles.mesh}
                         src="/svg/cool_ttl-sp.svg"

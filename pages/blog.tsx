@@ -110,18 +110,28 @@ const Blog: NextPage<Props> = ({ blogData, blogTag }: Props) => {
 
               <div className={styles.post}>
                 <ul>
-                  <li>
-                    {filteredPosts.map((items, top_blog_index) => {
-                      post_tag_array = [];
-                      items.fields.categoryTag.map((push_tag: any) => post_tag_array.push(push_tag.fields.tagName));
+                  {filteredPosts.map((items, index) => {
+                    post_tag_array = [];
+                    items.fields.categoryTag.map((push_tag: any) => post_tag_array.push(push_tag.fields.tagName));
 
-                      if (!isAllTag && post_tag_array.some((tag_value: string) => tags.includes(tag_value))) {
-                        return <BlogCard key={top_blog_index} blogData={items} index={top_blog_index}></BlogCard>;
-                      } else if (isAllTag) {
-                        return <BlogCard key={top_blog_index} blogData={items} index={top_blog_index}></BlogCard>;
-                      }
-                    })}
-                  </li>
+                    if (!isAllTag && post_tag_array.some((tag_value: string) => tags.includes(tag_value))) {
+                      return (
+                        <>
+                          <li key={index}>
+                            <BlogCard blogData={items} index={index}></BlogCard>
+                          </li>
+                        </>
+                      );
+                    } else if (isAllTag) {
+                      return (
+                        <>
+                          <li key={index}>
+                            <BlogCard blogData={items} index={index}></BlogCard>
+                          </li>
+                        </>
+                      );
+                    }
+                  })}
                 </ul>
               </div>
             </div>

@@ -81,7 +81,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const res_blog = await client.getEntries({ content_type: 'blog', limit: 3 });
   const res_works_tag = await client.getEntries({ content_type: 'worksTag' });
   const res_member = await client.getEntries({ content_type: 'members', limit: 5, order: 'fields.order' });
-  const res_work = await client.getEntries({ content_type: 'works', limit: 3 });
+  const res_work = await client.getEntries({ content_type: 'works', limit: 3, order: 'fields.order' });
   const res_news = await client.getEntries({ content_type: 'news', limit: 3, order: '-fields.newsData' });
 
   return {

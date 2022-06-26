@@ -3,11 +3,12 @@ export default function handler(req: any, res: any) {
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey('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');
 
+    
     const mail_body =
       req.body.company_name +
       '\r\n \r\n' +
       req.body.name +
-      '様 \r\n \r\n この度は弊社サービスにお問い合わせをいただき、誠にありがとうございます。 \r\n 以下の内容でお問い合わせを受け付けいたしました。 \r\n ２営業日以内に、担当者よりご連絡いたしますので、今しばらくお待ちくださいませ。\r\n\r\n\r\n━━━━━━□■□　お問い合わせ内容　□■□━━━━━━\r\n' +
+      '様 \r\n \r\n この度は弊社サービスにお問い合わせをいただき、誠にありがとうございます。 \r\n 以下の内容でお問い合わせを受け付けいたしました。 \r\n ２営業日以内に、担当者よりご連絡いたしますので、今しばらくお待ちくださいませ。\r\n\r\n\r\n━━　お問い合わせ内容　━━\r\n' +
       '会社名：' +
       req.body.company_name +
       '\r\n お名前：' +

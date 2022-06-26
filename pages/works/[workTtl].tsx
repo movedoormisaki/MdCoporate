@@ -35,13 +35,16 @@ const WorksPost: NextPage<Props> = ({ post }) => {
           <div className={styles.post_top}>
             <div className={styles.post_img}>
               <div className={styles.img_inner}>
-                <Image
-                  width={1920}
-                  height={720}
-                  layout="responsive"
-                  src={'https:' + post.fields.workThumb.fields.file.url}
-                  alt="ブログのサムネの大画面"
-                />
+                <div className={styles.img_box}>
+                  <Image
+                    width={1920}
+                    height={720}
+                    layout="responsive"
+                    src={'https:' + post.fields.workThumb.fields.file.url}
+                    alt="ブログのサムネの大画面"
+                  />
+                </div>
+
                 <div className={styles.black_filter}></div>
                 <div className={styles.post_top_ttl}>
                   <div className={styles.works_top_ttl}>

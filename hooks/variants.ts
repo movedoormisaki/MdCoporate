@@ -36,7 +36,6 @@ export const childFadeInUpContainer: Variants = {
     y: 0,
     transition: {
       staggerChildren: 0.5,
-      type: 'spring',
       duration: 1,
       stiffness: 100,
     },
@@ -156,5 +155,32 @@ export const blackBox = {
       duration: 1.5,
       ease: [0.87, 0, 0.13, 1],
     },
+  },
+};
+
+export const childFadeInUpWorksContainer: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.2,
+      duration: 0.5,
+      stiffness: 100,
+    },
+  },
+};
+
+export const childFadeInUpWorksItems: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
   },
 };

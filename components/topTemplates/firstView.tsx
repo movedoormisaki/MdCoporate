@@ -10,19 +10,29 @@ const FirstView = () => {
       <div className={styles.first_view} style={{ height: height }}>
         <div className={styles.container}>
           <div className={styles.h1_ttl}>
-            <div className={styles.slice_items}>
+            <div className={`${styles.slice_items} ${styles.sildeAnime}`}>
               <div className={styles.top_slice}>
-                <img src="./svg/reiwanogunshi.svg" alt="令和の軍師ロゴ" />
-                <img src="./svg/movedoor_word.svg" alt="movedoor文字" />
+                <div className={styles.animeBack}>
+                  <img src="./svg/reiwanogunshi.svg" alt="令和の軍師ロゴ" />
+                </div>
+                <div className={styles.animeBack}>
+                  <img src="./svg/movedoor_word.svg" alt="movedoor文字" />
+                </div>
               </div>
               <div className={styles.bottom_slice}>
-                <img src="./svg/reiwanogunshi.svg" alt="令和の軍師ロゴ" />
-                <img src="./svg/movedoor_word.svg" alt="movedoor文字" />
+                <div className={styles.animeBack}>
+                  <img src="./svg/reiwanogunshi.svg" alt="令和の軍師ロゴ" />
+                </div>
+                <div className={styles.animeBack}>
+                  <img src="./svg/movedoor_word.svg" alt="movedoor文字" />
+                </div>
               </div>
             </div>
 
             <div className={styles.h1_sub_ttl}>
-              <h2>PUBLIC RELATIONS / DESIGN / MOVIE</h2>
+              <div className={`${styles.sub_ttl_inner} ${styles.animeBack}`}>
+                <h2>PUBLIC RELATIONS / DESIGN / MOVIE</h2>
+              </div>
             </div>
           </div>
           <div className={styles.scroll}>

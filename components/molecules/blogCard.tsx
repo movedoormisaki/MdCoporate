@@ -39,7 +39,13 @@ const BlogCard = (props: blogData) => {
           <a className={styles.blog_a}>
             <div className={styles.blog_thumb}>
               <div className={styles.img_inner}>
-                <Image src={'https:' + blogData.fields.blogImg.fields.file.url} layout="fill" alt="ブログの背景" />
+                <Image
+                  width={440}
+                  height={280}
+                  src={'https:' + blogData.fields.blogImg.fields.file.url}
+                  layout="responsive"
+                  alt="ブログの背景"
+                />
               </div>
               <div className={styles.border}></div>
             </div>

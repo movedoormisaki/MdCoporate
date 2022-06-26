@@ -272,11 +272,11 @@ $pcCamp: 1920;
 }
 
 @mixin deco_txt {
-  @include font(24, 14, 36, 20, 400);
+  @include font(24, 10, 36, 16, 400);
   color: #dddddd;
   text-transform: capitalize;
   @include dnp_font;
-  padding: 13px 0;
+  @include pd(12, 3);
   display: inline-block;
   position: relative;
   @media screen and (max-width: 576px) {
@@ -292,7 +292,7 @@ $pcCamp: 1920;
     margin: 0;
     width: 90%;
     background-color: #dddddd;
-    height: 2px;
+    height: 1px;
     @media screen and (max-width: 576px) {
       height: 1px;
     }

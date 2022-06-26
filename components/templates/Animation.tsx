@@ -8,23 +8,19 @@ type Props = {
 
 const blackBox: Variants = {
   initial: {
-    y: '0',
+    opacity: 1,
   },
 
   animate: {
-    y: '-100%',
+    opacity: 0,
     transition: {
-      duration: 1,
+      duration: 0.5,
       ease: [0.87, 0, 0.13, 1],
     },
   },
 
   exit: {
-    y: '0',
-    transition: {
-      duration: 1,
-      ease: [0.87, 0, 0.13, 1],
-    },
+    opacity: 1,
   },
 };
 
@@ -35,11 +31,12 @@ const Animation = () => {
       style={{
         width: width + 'px',
         height: height + 'px',
-        position: 'absolute',
+        position: 'fixed',
         background: '#000',
         zIndex: '9999',
         top: '0',
         left: '0',
+        pointerEvents: 'none',
       }}
       variants={blackBox}
       initial="initial"

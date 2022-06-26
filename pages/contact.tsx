@@ -19,7 +19,7 @@ const Contact: NextPage = ({ respost }: any) => {
 
   const registerUser = async (event: any) => {
     event.preventDefault();
-    setSubmit(true);
+    //setSubmit(true);
     const res = await fetch('/api/send', {
       body: JSON.stringify({
         company_name: event.target.company_name.value,
@@ -38,12 +38,10 @@ const Contact: NextPage = ({ respost }: any) => {
   return (
     <>
       <Head>
-        
         <title>{title}</title>
         <meta property="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-
         <script
           id="_bownow_cs_sid_9d25c3ed8baff8866ae5"
           dangerouslySetInnerHTML={{
@@ -52,7 +50,6 @@ const Contact: NextPage = ({ respost }: any) => {
             _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src =
             'https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
             document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
-
         `,
           }}
         />

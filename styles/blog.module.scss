@@ -50,6 +50,9 @@
             display: block;
             @include liquidSize(width, 440, 150);
           }
+          li {
+            
+          }
         }
       }
       @include category_tag;

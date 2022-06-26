@@ -10,8 +10,9 @@ import { getWindowSize } from '../hooks/GetWindowSize';
 import { useRouter } from 'next/router';
 import type { NextRouter } from 'next/router';
 import { count } from 'console';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import Animation from '../components/templates/Animation';
+import { childFadeInUpWorksContainer, childFadeInUpWorksItems } from '../hooks/variants';
 
 export interface workData_type {
   fields: {
@@ -41,6 +42,8 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
 
   const { width } = getWindowSize();
 
+  let plusNumber = 9;
+
   const description =
     '兵庫県三田市を拠点にしておりますが、ご依頼は関西全域から頂いております。その実績をこちらには掲載しているので、覗きに来てください';
   const title = 'WORKS -実績事例-';
@@ -69,9 +72,43 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
     }
   }, [tags]);
 
-  const counter = filteredPosts.length;
+  let counter = filteredPosts.length;
+  let rate = '8vw';
+  let count: number = 0;
+  let changeCount: number = 9;
 
-  let count: number = -1;
+  let counterArray: any[] = [];
+
+  if (width > 576) {
+    counterArray = [
+      [1, 1, 3, 2],
+      [1, 2, 5, 3],
+      [1, 3, 4, 4],
+      [3, 1, 7, 2],
+      [5, 2, 8, 3],
+      [4, 3, 6, 4],
+      [7, 1, 10, 2],
+      [8, 2, 10, 3],
+      [6, 3, 10, 4],
+    ];
+  } else {
+    plusNumber = 9;
+    changeCount = 6;
+    counter = counter * 1.5;
+    rate = '16vw';
+    counterArray = [
+      [1, 1, 3, 2],
+      [1, 2, 5, 3],
+      [3, 1, 6, 2],
+      [5, 2, 7, 3],
+      [6, 1, 10, 2],
+      [7, 2, 10, 3],
+    ];
+  }
+
+  let AmariN: number = 0;
+  let Con: number = 0;
+  let Amari: number = 0;
 
   return (
     <>
@@ -88,7 +125,7 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
             <div className={styles.container}>
               <div className={styles.ttl}>
                 <h2>
-                  works{' '}
+                  works
                   <span className={isAllTag ? styles.all : styles.tag_size}> - {isAllTag ? 'all' : `${tags}`}</span>
                 </h2>
                 <hr />
@@ -125,49 +162,92 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
                 </ul>
               </div>
 
-              <div className={styles.post}>
-                <ul className="getTemplate">
+              <motion.div
+                variants={childFadeInUpWorksContainer}
+                initial="hidden"
+                animate="show"
+                className={styles.post}
+              >
+                <ul
+                  className={styles.getTemplate}
+                  style={{ gridTemplateRows: 'repeat(' + counter + ', ' + rate + ')' }}
+                >
                   {filteredPosts.map((items, work_index: number) => {
                     if (work_index) post_tag_array = [];
+
                     items.fields.worsTag.map((push_tag: any, pushIndex: number) =>
                       post_tag_array.push(push_tag.fields.worksTagName)
                     );
 
+                    Amari = count / changeCount;
+
+                    if (count >= changeCount) {
+                      AmariN = 0;
+                      AmariN = AmariN + plusNumber * Math.floor(Amari);
+                      Con = count - changeCount * Math.floor(Amari);
+                      
+                    } else {
+                      Con = count;
+                    }
+
+                    console.log('Amari', Amari);
+                    console.log('Amari', Math.floor(Amari));
+                    console.log('count', count);
+                    console.log('AmariN', AmariN);
+                    console.log('Con', Con);
+                    console.log('---------------');
+
+                    let Counter1: number = counterArray[0][0];
+                    let Counter2: number = counterArray[0][1];
+                    let Counter3: number = counterArray[0][2];
+                    let Counter4: number = counterArray[0][3];
+
                     if (!isAllTag && post_tag_array.some((tag_value: string) => tags.includes(tag_value))) {
+                      Counter1 = counterArray[Con][0] + AmariN;
+                      Counter2 = counterArray[Con][1];
+                      Counter3 = counterArray[Con][2] + AmariN;
+                      Counter4 = counterArray[Con][3];
+
                       count = count + 1;
+
                       return (
                         <>
-                          <WorkCard key={work_index} workData={items} index={work_index} count={count}></WorkCard>
+                          <motion.li
+                            style={{ gridArea: Counter1 + '/' + Counter2 + '/' + Counter3 + '/' + Counter4 }}
+                            variants={childFadeInUpWorksItems}
+                            key={work_index}
+                          >
+                            <WorkCard key={work_index} workData={items} index={work_index}></WorkCard>
+                          </motion.li>
                         </>
                       );
                     } else if (isAllTag) {
+                      Counter1 = counterArray[Con][0] + AmariN;
+                      Counter2 = counterArray[Con][1];
+                      Counter3 = counterArray[Con][2] + AmariN;
+                      Counter4 = counterArray[Con][3];
+
                       count = count + 1;
+
                       return (
                         <>
-                          <WorkCard key={work_index} workData={items} index={work_index} count={count}></WorkCard>
+                          <motion.li
+                            style={{ gridArea: Counter1 + '/' + Counter2 + '/' + Counter3 + '/' + Counter4 }}
+                            variants={childFadeInUpWorksItems}
+                            key={work_index}
+                          >
+                            <WorkCard key={work_index} workData={items} index={work_index}></WorkCard>
+                          </motion.li>
                         </>
                       );
                     }
                   })}
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </BackGround>
-      <style jsx>{`
-        .getTemplate {
-          display: grid;
-          grid-template-rows: repeat(${counter}, 8vw);
-          grid-template-column: repeat(3, auto-fit);
-          grid-gap: 20px 10px;
-        }
-        @media screen and (max-width: 576px) {
-          .getTemplate {
-            grid-template-rows: repeat(${counter * 1.5}, 16vw);
-          }
-        }
-      `}</style>
     </>
   );
 };
