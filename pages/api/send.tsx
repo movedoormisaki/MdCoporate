@@ -3,7 +3,6 @@ export default function handler(req: any, res: any) {
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey('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');
 
-    
     const mail_body =
       req.body.company_name +
       '\r\n \r\n' +

@@ -33,6 +33,8 @@ const Contact: NextPage = ({ respost }: any) => {
       },
       method: 'POST',
     });
+
+    setSubmit(true);
   };
 
   return (
