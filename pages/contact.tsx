@@ -20,8 +20,6 @@ const Contact: NextPage = ({ respost }: any) => {
   const registerUser = async (event: any) => {
     event.preventDefault();
 
-    setSubmit(true);
-
     const res = await fetch('/api/send', {
       body: JSON.stringify({
         company_name: event.target.company_name.value,
@@ -35,6 +33,8 @@ const Contact: NextPage = ({ respost }: any) => {
       },
       method: 'POST',
     });
+
+    setSubmit(true);
   };
 
   return (
@@ -97,7 +97,13 @@ const Contact: NextPage = ({ respost }: any) => {
                 </div>
 
                 <div className={styles.submit_btn}>
-                  <button type="submit" className={styles.btn}>
+                  <button
+                    type="submit"
+                    className={styles.btn}
+                    // onClick={() => {
+                    //   setSubmit(true);
+                    // }}
+                  >
                     送信
                   </button>
                 </div>
