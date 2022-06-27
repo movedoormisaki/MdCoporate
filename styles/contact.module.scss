@@ -92,6 +92,7 @@
       .submit_btn {
         @include flex-center;
         @include liquidSize(margin-top, 80, 84);
+        transition: 0.2s all ease-in-out;
         button {
           width: 240px;
           height: 80px;
@@ -108,7 +109,37 @@
             @include absolute-center;
           }
         }
+        &:hover {
+          transform: scale(1.05);
+        }
+        &:active {
+          transform: scale(0.95);
+        }
       }
     }
+  }
+}
+
+.thanks {
+  opacity: 0;
+  height: 0;
+  transition: 1s all ease-in-out;
+  pointer-events: none;
+  &.submit_tanks {
+    height: initial !important;
+    opacity: 1 !important;
+    pointer-events: all;
+  }
+}
+
+.contact_res {
+  height: initial;
+  opacity: 1;
+  transition: 1s all ease-in-out;
+  pointer-events: all;
+  &.submit_tanks {
+    opacity: 0;
+    height: 0;
+    pointer-events: none;
   }
 }
