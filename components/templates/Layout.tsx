@@ -101,6 +101,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         `,
           }}
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167264993-3"></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'UA-167264993-3');
+        `,
+          }}
+        />
       </Head>
       {/* <Transition /> */}
       <Header nav={nav_items} link={link_items}></Header>
