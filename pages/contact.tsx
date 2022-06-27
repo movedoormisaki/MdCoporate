@@ -33,8 +33,6 @@ const Contact: NextPage = ({ respost }: any) => {
       },
       method: 'POST',
     });
-
-    setSubmit(true);
   };
 
   return (
@@ -100,9 +98,9 @@ const Contact: NextPage = ({ respost }: any) => {
                   <button
                     type="submit"
                     className={styles.btn}
-                    // onClick={() => {
-                    //   setSubmit(true);
-                    // }}
+                    onClick={() => {
+                      setSubmit(true);
+                    }}
                   >
                     送信
                   </button>
