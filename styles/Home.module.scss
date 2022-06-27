@@ -10,7 +10,7 @@
     mix-blend-mode: color;
   }
   .black {
-    background-color: rgb(0, 0, 0, 0.95);
+    background-color: rgb(0, 0, 0, 0.93);
   }
   .white {
     width: 100%;
@@ -133,12 +133,12 @@ div.animeBack {
           position: absolute;
           -webkit-clip-path: polygon(70% 0, 100% 0%, 100% 100%, 30% 100%);
           clip-path: polygon(70% 0, 100% 0%, 100% 100%, 30% 100%);
-          animation: slice_anime 0.5s cubic-bezier(0.71, 0, 0.21, 1.71) 2s forwards;
+          animation: slice_anime 0.2s cubic-bezier(0.71, 0, 0.21, 1.71) 2.5s forwards;
           img:nth-child(1) {
             background: #e0bd00;
           }
           @media screen and (max-width: 576px) {
-            animation: slice_anime_sp 0.5s cubic-bezier(0.71, 0, 0.21, 1.71) 2s forwards;
+            animation: slice_anime_sp 0.2s cubic-bezier(0.71, 0, 0.21, 1.71) 2.5s forwards;
           }
         }
         .bottom_slice {
@@ -167,11 +167,12 @@ div.animeBack {
   0% {
     top: 0px;
     right: 0px;
+    transform: scale(1);
   }
-
   100% {
-    top: -15px;
-    right: -30px;
+    top: -20px;
+    right: -35px;
+    transform: scale(0.95);
   }
 }
 
@@ -179,11 +180,13 @@ div.animeBack {
   0% {
     top: 0px;
     right: 0px;
+    transform: scale(1);
   }
 
   100% {
-    top: -5px;
-    right: -10px;
+    top: -10px;
+    right: -15px;
+    transform: scale(0.95);
   }
 }
 
@@ -622,9 +625,7 @@ div.animeBack {
     @include liquidSize(top, 0, -50);
     @include liquidSize(left, -50, -70);
     @include liquidSize(width, 852, 320, 405);
-    @include liquidSize(height, 852, 360);
-    @media screen and (max-width: 576px) {
-    }
+    @include liquidSize(height, 852, 320);
     .img_inner {
       width: inherit;
       height: inherit;

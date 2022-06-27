@@ -10,7 +10,7 @@
       flex-direction: column;
 
       .date {
-        @include font(32, 24, 32, 24, 400);
+        @include font(32, 18, 32, 24, 400);
         margin-bottom: 4px;
       }
       .youbi {
@@ -20,14 +20,15 @@
         padding: 2px 0;
         text-align: center;
         text-transform: uppercase;
-        @include font(16, 10, 24, 20, 400);
+        @include font(16, 8, 24, 20, 400);
         margin-bottom: 4px;
         @media screen and (max-width: 576px) {
           padding: 0;
+          margin-bottom: 0px;
         }
       }
       .year {
-        @include font(16, 12, 24, 24, 400);
+        @include font(16, 10, 24, 24, 400);
         text-align: center;
       }
     }
@@ -38,12 +39,12 @@
     flex-direction: column;
     justify-content: flex-start;
     .main_ttl {
-      @include font(32, 24, 32, 24, 400);
+      @include font(32, 18, 32, 24, 400);
       @include liquidSize(padding-bottom, 12, 6);
       border-bottom: #bababa solid 1px;
     }
     .detail {
-      @include font(16, 14, 24, 24, 400);
+      @include font(16, 12, 24, 20, 400);
       @include liquidSize(padding-top, 12, 6);
     }
   }

@@ -19,7 +19,7 @@ const Contact: NextPage = ({ respost }: any) => {
 
   const registerUser = async (event: any) => {
     event.preventDefault();
-    //setSubmit(true);
+    setSubmit(true);
     const res = await fetch('/api/send', {
       body: JSON.stringify({
         company_name: event.target.company_name.value,

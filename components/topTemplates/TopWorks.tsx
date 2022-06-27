@@ -186,7 +186,7 @@ const TopWorks = ({ workData }: workData) => {
                                     </div>
                                   </div>
                                 </div>
-                                <div className={styles.open_inner}>
+                                <div className={`${styles.open_inner} open_inner`}>
                                   <div className={styles.company_name}>
                                     <p>{items.fields.workSubTtl}</p>
                                     <h6>{items.fields.workTtl}</h6>
@@ -208,6 +208,16 @@ const TopWorks = ({ workData }: workData) => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @media screen and (max-width: 576px) {
+          .swiper-slide-active li a div.open_inner {
+            opacity: 1;
+            height: inherit;
+            width: inherit;
+          }
+        }
+      `}</style>
     </>
   );
 };
