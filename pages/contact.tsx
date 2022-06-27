@@ -18,7 +18,7 @@ const Contact: NextPage = ({ respost }: any) => {
   }, []);
 
   const registerUser = async (event: any) => {
-    //event.preventDefault();
+    event.preventDefault();
 
     const res = await fetch('/api/send', {
       body: JSON.stringify({
