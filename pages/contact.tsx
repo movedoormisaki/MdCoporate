@@ -18,7 +18,7 @@ const Contact: NextPage = ({ respost }: any) => {
   }, []);
 
   const registerUser = async (event: any) => {
-    event.preventDefault();
+    //event.preventDefault();
 
     const res = await fetch('/api/send', {
       body: JSON.stringify({
@@ -98,9 +98,9 @@ const Contact: NextPage = ({ respost }: any) => {
                   <button
                     type="submit"
                     className={styles.btn}
-                    onClick={() => {
-                      setSubmit(true);
-                    }}
+                    // onClick={() => {
+                    //   setSubmit(true);
+                    // }}
                   >
                     送信
                   </button>
