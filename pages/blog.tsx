@@ -36,7 +36,7 @@ type Props = blogTag & blogData;
 const Blog: NextPage<Props> = ({ blogData, blogTag }: Props) => {
   const [filteredPosts, setFilteredPosts] = useState<blogData_type[]>(blogData);
 
-  const title = 'BLOGS -代表諸富稜の公式ブログ-';
+  const title = 'BLOGS-代表諸富稜の公式ブログ-';
   const description = '取締役代表のとみー(諸富)が執筆する公式ブログ　—— 企業文化から経営思想、地域での活動まで';
 
   const tag_array: any = [];
