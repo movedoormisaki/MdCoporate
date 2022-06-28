@@ -1,7 +1,8 @@
 export default function handler(req: any, res: any) {
+  const apiKey = process.env.NEXT_PUBLIC_APIKEY;
   if (req.method === 'POST') {
     const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey('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');
+    sgMail.setApiKey(apiKey);
 
     const mail_body =
       req.body.company_name +
