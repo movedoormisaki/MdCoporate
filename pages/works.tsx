@@ -170,7 +170,7 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
               >
                 <ul
                   className={styles.getTemplate}
-                  style={{ gridTemplateRows: 'repeat(' + counter + ', ' + rate + ')' }}
+                  style={{ gridTemplateRows: 'repeat(' + Math.round(counter) + ', ' + rate + ')' }}
                 >
                   {filteredPosts.map((items, work_index: number) => {
                     if (work_index) post_tag_array = [];
@@ -185,7 +185,6 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
                       AmariN = 0;
                       AmariN = AmariN + plusNumber * Math.floor(Amari);
                       Con = count - changeCount * Math.floor(Amari);
-                      
                     } else {
                       Con = count;
                     }
