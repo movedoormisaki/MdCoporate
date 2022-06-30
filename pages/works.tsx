@@ -189,12 +189,12 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
                       Con = count;
                     }
 
-                    console.log('Amari', Amari);
-                    console.log('Amari', Math.floor(Amari));
-                    console.log('count', count);
-                    console.log('AmariN', AmariN);
-                    console.log('Con', Con);
-                    console.log('---------------');
+                    // console.log('Amari', Amari);
+                    // console.log('Amari', Math.floor(Amari));
+                    // console.log('count', count);
+                    // console.log('AmariN', AmariN);
+                    // console.log('Con', Con);
+                    // console.log('---------------');
 
                     let Counter1: number = counterArray[0][0];
                     let Counter2: number = counterArray[0][1];
