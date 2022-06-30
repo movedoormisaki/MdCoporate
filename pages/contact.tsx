@@ -2,7 +2,7 @@ import BackGround from '../components/molecules/BackGround';
 import styles from '../styles/contact.module.scss';
 import Link from 'next/link';
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NextPage } from 'next';
 import Animation from '../components/templates/Animation';
 
@@ -37,6 +37,16 @@ const Contact: NextPage = ({ respost }: any) => {
     setSubmit(true);
   };
 
+  // const element: any = useRef(null);
+
+  // useEffect(() => {
+  //   if (!element.current) return;
+  //   element.current.appendChild(document.createRange().createContextualFragment(html));
+  // }, [element]);
+
+  //const subject: any = document.querySelector('#_bownow_iframe_sid_9d25c3ed8baff8866ae5');
+  //document.getElementById('#contact_bow_form').appendChild(subject);
+
   return (
     <>
       <Head>
@@ -44,17 +54,6 @@ const Contact: NextPage = ({ respost }: any) => {
         <meta property="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <script
-          id="_bownow_cs_sid_9d25c3ed8baff8866ae5"
-          dangerouslySetInnerHTML={{
-            __html: `
-            var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
-            _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src =
-            'https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
-            document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
-        `,
-          }}
-        />
       </Head>
       <Animation />
       <BackGround opacity={0.6}>
@@ -65,6 +64,9 @@ const Contact: NextPage = ({ respost }: any) => {
                 <h1>contact</h1>
                 <hr />
               </div>
+              {/* <div id="contact_bow_form">
+                <div ref={element}></div>
+              </div> */}
               <form name="contactForm" onSubmit={registerUser}>
                 <div className={styles.items}>
                   <label htmlFor="company_name">会社名</label>
@@ -130,6 +132,12 @@ const Contact: NextPage = ({ respost }: any) => {
                   </a>
                 </Link>
               </div>
+              {/* <script id="_bownow_cs_sid_9d25c3ed8baff8866ae5">
+                var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
+                _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src
+                ='https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
+                document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
+              </script> */}
             </div>
           </div>
         </div>

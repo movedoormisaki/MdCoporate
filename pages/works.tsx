@@ -72,7 +72,7 @@ const Works: NextPage<Props> = ({ workData, workTag }: Props) => {
     }
   }, [tags]);
 
-  let counter = filteredPosts.length;
+  let counter = Math.floor(filteredPosts.length);
   let rate = '8vw';
   let count: number = 0;
   let changeCount: number = 9;
