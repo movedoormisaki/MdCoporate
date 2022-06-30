@@ -37,6 +37,15 @@ const Contact: NextPage = ({ respost }: any) => {
     setSubmit(true);
   };
 
+  {
+    /* <script id="_bownow_cs_sid_9d25c3ed8baff8866ae5">
+                var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
+                _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src
+                ='https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
+                document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
+              </script> */
+  }
+
   // const element: any = useRef(null);
 
   // useEffect(() => {
@@ -64,10 +73,17 @@ const Contact: NextPage = ({ respost }: any) => {
                 <h1>contact</h1>
                 <hr />
               </div>
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdm4tolfBLCZNI56sK6jEZ9yxKb4PDNSQHdLm4WIuFXvmm-TA/viewform?embedded=true"
+                width="1200"
+                height="947"
+              >
+                読み込んでいます…
+              </iframe>
               {/* <div id="contact_bow_form">
                 <div ref={element}></div>
               </div> */}
-              <form name="contactForm" onSubmit={registerUser}>
+              {/* <form name="contactForm" onSubmit={registerUser}>
                 <div className={styles.items}>
                   <label htmlFor="company_name">会社名</label>
                   <input id="company_name" name="company_name" type="text" required />
@@ -109,8 +125,8 @@ const Contact: NextPage = ({ respost }: any) => {
                     送信
                   </button>
                 </div>
-              </form>
-            </div>
+              </form> */}
+              {/* </div>
             <div className={submit ? `${styles.thanks} ${styles.submit_tanks}` : styles.thanks}>
               <div className={styles.center}>
                 <div className={styles.thanks_ttl}>
@@ -132,12 +148,7 @@ const Contact: NextPage = ({ respost }: any) => {
                   </a>
                 </Link>
               </div>
-              {/* <script id="_bownow_cs_sid_9d25c3ed8baff8866ae5">
-                var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
-                _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src
-                ='https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
-                document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
-              </script> */}
+            </div> */}
             </div>
           </div>
         </div>
