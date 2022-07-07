@@ -39,10 +39,7 @@ const Contact: NextPage = ({ respost }: any) => {
 
   {
     /* <script id="_bownow_cs_sid_9d25c3ed8baff8866ae5">
-                var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
-                _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src
-                ='https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
-                document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
+             
               </script> */
   }
 
@@ -63,6 +60,17 @@ const Contact: NextPage = ({ respost }: any) => {
         <meta property="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
+        <script
+          id="_bownow_cs_sid_9d25c3ed8baff8866ae5"
+          dangerouslySetInnerHTML={{
+            __html: `
+            var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
+            _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src
+            ='https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
+            document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
+        `,
+          }}
+        />
       </Head>
       <Animation />
       <BackGround opacity={0.6}>
