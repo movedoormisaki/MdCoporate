@@ -71,13 +71,13 @@ const Contact: NextPage = ({ respost }: any) => {
                 <h1>contact</h1>
                 <hr />
               </div>
-              <iframe
+              {/* <iframe
                 src="https://docs.google.com/forms/d/e/1FAIpQLSdm4tolfBLCZNI56sK6jEZ9yxKb4PDNSQHdLm4WIuFXvmm-TA/viewform?embedded=true"
                 width="1200"
                 height="947"
               >
                 読み込んでいます…
-              </iframe>
+              </iframe> */}
               <div className="contactform">
                 <script id="_bownow_cs_sid_9d25c3ed8baff8866ae5" />
               </div>
