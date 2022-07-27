@@ -59,7 +59,10 @@ const Contact: NextPage = ({ respost }: any) => {
                         var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
                         _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src
                         ='https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
-                        document.getElementById('contact_bow_form').appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
+                        document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
+                        const bownow_iframe = document.getElementById('_bownow_iframe_sid_9d25c3ed8baff8866ae5');
+                        const contact_bow_form = document.getElementById('contact_bow_form');
+                        contact_bow_form.innerHTML = bownow_iframe;
                     `,
           }}
         />
