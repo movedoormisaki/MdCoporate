@@ -79,7 +79,7 @@ const Contact: NextPage = ({ respost }: any) => {
                 読み込んでいます…
               </iframe>
               <div className="contactform">
-                <div id="_bownow_cs_sid_9d25c3ed8baff8866ae5"></div>
+                <script id="_bownow_cs_sid_9d25c3ed8baff8866ae5" />
               </div>
               {/* 
                <form name="contactForm" onSubmit={registerUser}>
