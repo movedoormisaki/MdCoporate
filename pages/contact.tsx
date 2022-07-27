@@ -55,173 +55,10 @@ const Contact: NextPage = ({ respost }: any) => {
         <script
           id="_bownow_cs_sid_9d25c3ed8baff8866ae5"
           dangerouslySetInnerHTML={{
-            __html: `
-            (function(){
-              // フォーム（iframeのIDをもつエレメント）が既にDOMに存在する場合は何もせずに終了
-              if (document.getElementById('_bownow_iframe_sid_9d25c3ed8baff8866ae5')) { return; }
-            
-              var getStorage = function(key) {
-                var s = window.localStorage.getItem(key);
-                if (s === null) { return ''; }
-                try {
-                  s = JSON.parse(s);
-                  if (s.expires === undefined) { return s.value; }
-                  if (new Date(s.expires) > new Date()) {
-                    return s.value;
-                  } else {
-                    window.localStorage.removeItem(key);
-                    return '';
-                  }
-                } catch (e) {
-                  window.localStorage.removeItem(key);
-                  return '';
-                }
-              }
-              var getCookie = function(key) {
-                var name = key + '=';
-                var decodedCookie = decodeURIComponent(document.cookie);
-                var ca = decodedCookie.split(';');
-                for(var i = 0; i < ca.length; i++) {
-                  var c = ca[i];
-                  while (c.charAt(0) == ' ') { c = c.substring(1); }
-                  if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-                }
-                return getStorage(key);
-              };
-              var setStorage = function(key, value, expires) {
-                var data = expires === undefined ? { value: value } : { value: value, expires: expires };
-                window.localStorage.setItem(key, JSON.stringify(data));
-              }
-              var setCookie = function(key, value, expire) {
-                var d = new Date();
-                d.setTime(d.getTime() + expire);
-                var expires = d.toUTCString();
-                document.cookie = key + "=" + value + ";expires=" + expires + ";path=/";
-                setStorage(key, value, expires);
-              };
-              var getParameterByName = function(name, url) {
-                if (!url) url = window.location.href;
-                name = name.replace(/[\[\]]/g, "\\$&");
-                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                  results = regex.exec(url);
-                if (!results) { return null; }
-                if (!results[2]) { return ''; }
-                return decodeURIComponent(results[2].replace(/\+/g, " "));
-              };
-              if (!window._bownowPostMessageFunc) {
-                window._bownowPostMessageFunc = function (e) {
-                  if (e.origin !== 'https://contents.bownow.jp' ) { return; }
-                  var getFrameTarget = function (source) {
-                    var frames = document.getElementsByTagName('iframe');
-                    for (var i = 0; i < frames.length; i++) {
-                      if (frames[i].contentWindow === source) { return frames[i]; }
-                    }
-                    return null;
-                  };
-                  var key = e.message ? "message" : "data";
-                  var data = e[key];
-                  var element = document.getElementById(data.id) || getFrameTarget(e.source);
-                  if (data.height) {
-                    if (element) { element.height = data.height; }
-                  }
-                  if (data.scroll) {
-                    if (data.scroll === 'contact_top') {
-                      window.scrollTo(null, element.offsetTop);
-                    } else if (data.scroll === 'page_top') {
-                      window.scrollTo(null, 0);
-                    }
-                  }
-                  if (data.access_token) {
-                    setCookie('bownow_accesstoken', data.access_token, 30*60*1000);
-                  }
-                  if (data.redirectTo) {
-                    window.location.href = data.redirectTo;
-                  }
-                };
-                var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-                var eventer = window[eventMethod];
-                var messageEvent = eventMethod === "attachEvent" ? "onmessage" : "message";
-                eventer(messageEvent, window._bownowPostMessageFunc, false);
-                var _bownow_accesstoken = getCookie('bownow_accesstoken');
-                if (_bownow_accesstoken) {
-                  setCookie('bownow_accesstoken', _bownow_accesstoken, 30*60*1000);
-                }
-              }
-              var _bownow_cid    = getCookie('bownow_cid');
-              if (!_bownow_cid) {
-                _bownow_cid = 'cb9c6ca5-64df-4682-8623-d0cdc63d5e8d';
-                setCookie('bownow_cid', _bownow_cid);
-              }
-              var _bownow_cf_src = 'https://contents.bownow.jp/forms/view/sid_9d25c3ed8baff8866ae5/' +  _bownow_cid;
-              _bownow_cf_src = _bownow_cf_src + '?title=' + encodeURIComponent(document.title) + '&referer=' + encodeURIComponent(window.location.href);
-              var _bownow_mbid = getCookie('bownow_mbid');
-              if (!_bownow_mbid) {
-                var _bownowmail = getParameterByName('bownowmail');
-                if (_bownowmail && _bownowmail.split(':')[1]) {
-                  _bownow_mbid = _bownowmail.split(':')[1];
-                }
-              }
-              if (_bownow_mbid) {
-                _bownow_cf_src = _bownow_cf_src + '&bownow_mbid=' + _bownow_mbid;
-              }
-              if (getParameterByName('_bq_family_name')) {
-                _bownow_cf_src = _bownow_cf_src + '&family_name=' + encodeURIComponent(getParameterByName('_bq_family_name'));
-              }
-              if (getParameterByName('_bq_given_name')) {
-                _bownow_cf_src = _bownow_cf_src + '&given_name=' + encodeURIComponent(getParameterByName('_bq_given_name'));
-              }
-              if (getParameterByName('_bq_email')) {
-                _bownow_cf_src = _bownow_cf_src + '&email=' + encodeURIComponent(getParameterByName('_bq_email'));
-              }
-              if (getParameterByName('_bq_phone_number')) {
-                _bownow_cf_src = _bownow_cf_src + '&phone_number=' + encodeURIComponent(getParameterByName('_bq_phone_number'));
-              }
-              if (getParameterByName('_bq_company_name')) {
-                _bownow_cf_src = _bownow_cf_src + '&company_name=' + encodeURIComponent(getParameterByName('_bq_company_name'));
-              }
-              if (getParameterByName('_bq_section_name')) {
-                _bownow_cf_src = _bownow_cf_src + '&section_name=' + encodeURIComponent(getParameterByName('_bq_section_name'));
-              }
-              if (getParameterByName('_bq_position_name')) {
-                _bownow_cf_src = _bownow_cf_src + '&position_name=' + encodeURIComponent(getParameterByName('_bq_position_name'));
-              }
-              if (getParameterByName('_bq_text_area-1')) {
-                _bownow_cf_src = _bownow_cf_src + '&text_area-1=' + encodeURIComponent(getParameterByName('_bq_text_area-1'));
-              }
-              var _bownow_cf = document.createElement('iframe');
-              _bownow_cf.id = '_bownow_iframe_sid_9d25c3ed8baff8866ae5';
-              _bownow_cf.src = _bownow_cf_src;
-              _bownow_cf.width = '100%';
-              _bownow_cf.height = 0;
-              _bownow_cf.style = 'border: none; overflow: hidden';
-              _bownow_cf.frameBorder = 0;
-              _bownow_cf.setAttribute('allowtransparency', 'true');
-              _bownow_cf.setAttribute('scrolling', 'yes');
-              _bownow_cf.onload = _bownow_cf.onreadystatechange = function() {
-                try {
-                  if (!this.readyState || 'loaded' === this.readyState || 'complete' === this.readyState) {
-                    this.onload = this.onreadystatechange = null;
-                    var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-                    var focusEvent = eventMethod === "attachEvent" ? "onfocus" : "focus";
-                    var focusFunc = function() {
-                      try {
-                        window[eventMethod === "attachEvent" ? "detachEvent" : "removeEventListener"](focusEvent, focusFunc);
-                        _bownow_cf.contentWindow.postMessage('focus', '*');
-                      } catch (e) {  }
-                    };
-                    window[eventMethod](focusEvent, focusFunc, { once: true });
-                  }
-                } catch (e) {  }
-              }
-              try {
-                var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.getElementById('contact_bow_form');
-                _bownow_cs_sid_9d25c3ed8baff8866ae5.insertBefore(_bownow_cf, contact_bow_form);
-                console.log("ok")
-              } catch (e) {
-                var _bownow_cs = document.getElementById('_bownow_cs');
-                _bownow_cs.parentNode.insertBefore(_bownow_cf, _bownow_cs.nextSibling);
-              }
-            }).call(this);
+            __html: `var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
+            _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8';
+            _bownow_cs_sid_9d25c3ed8baff8866ae5.src = 'https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
+            document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
                     `,
           }}
         />
@@ -242,7 +79,7 @@ const Contact: NextPage = ({ respost }: any) => {
               >
                 読み込んでいます…
               </iframe>
-              <div id="contact_bow_form"></div>
+              <div id="_bownow_cs_sid_9d25c3ed8baff8866ae5"></div>
               {/* 
                <form name="contactForm" onSubmit={registerUser}>
                 <div className={styles.items}>
