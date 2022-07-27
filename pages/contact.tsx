@@ -215,8 +215,8 @@ const Contact: NextPage = ({ respost }: any) => {
               }
               try {
                 var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.getElementById('contact_bow_form');
-                _bownow_cs_sid_9d25c3ed8baff8866ae5.insertBefore(_bownow_cf, contact_bow_form.nextSibling);
-                print("ok")
+                _bownow_cs_sid_9d25c3ed8baff8866ae5.insertBefore(_bownow_cf, contact_bow_form);
+                console.log("ok")
               } catch (e) {
                 var _bownow_cs = document.getElementById('_bownow_cs');
                 _bownow_cs.parentNode.insertBefore(_bownow_cf, _bownow_cs.nextSibling);
