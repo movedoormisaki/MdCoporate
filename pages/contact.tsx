@@ -37,8 +37,6 @@ const Contact: NextPage = ({ respost }: any) => {
     setSubmit(true);
   };
 
-  const element: any = useRef(null);
-
   // useEffect(() => {
   //   if (!element.current) return;
   //   element.current.appendChild(document.createRange().createContextualFragment(html));
@@ -65,15 +63,6 @@ const Contact: NextPage = ({ respost }: any) => {
                     `,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                const bownow_iframe = document.getElementById('_bownow_iframe_sid_9d25c3ed8baff8866ae5');
-                const contact_bow_form = document.getElementById('contact_bow_form');
-                contact_bow_form.appendChild(bownow_iframe);
-            `,
-          }}
-        />
       </Head>
       <Animation />
       <BackGround opacity={0.6}>
@@ -91,9 +80,7 @@ const Contact: NextPage = ({ respost }: any) => {
               >
                 読み込んでいます…
               </iframe>
-              <div id="contact_bow_form">
-                <div ref={element}></div>
-              </div>
+              <div id="contact_bow_form"></div>
               {/* 
                <form name="contactForm" onSubmit={registerUser}>
                 <div className={styles.items}>
@@ -164,6 +151,15 @@ const Contact: NextPage = ({ respost }: any) => {
             </div>
           </div>
         </div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                const bownow_iframe = document.getElementById('_bownow_iframe_sid_9d25c3ed8baff8866ae5');
+                const contact_bow_form = document.getElementById('contact_bow_form');
+                contact_bow_form.innerHTML = bownow_iframe;
+            `,
+          }}
+        />
       </BackGround>
     </>
   );
