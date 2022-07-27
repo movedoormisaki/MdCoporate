@@ -53,7 +53,6 @@ const Contact: NextPage = ({ respost }: any) => {
         <meta property="og:title" content={title} key="og_title" />
         <meta property="og:description" content={description} key="og_description" />
         <script
-          id="_bownow_cs_sid_9d25c3ed8baff8866ae5"
           dangerouslySetInnerHTML={{
             __html: `var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
             _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8';
@@ -79,7 +78,9 @@ const Contact: NextPage = ({ respost }: any) => {
               >
                 読み込んでいます…
               </iframe>
-              <div id="_bownow_cs_sid_9d25c3ed8baff8866ae5"></div>
+              <div className="contactform">
+                <div id="_bownow_cs_sid_9d25c3ed8baff8866ae5"></div>
+              </div>
               {/* 
                <form name="contactForm" onSubmit={registerUser}>
                 <div className={styles.items}>
