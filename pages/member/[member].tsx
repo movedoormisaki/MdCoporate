@@ -17,9 +17,9 @@ const MemberWork: NextPage<Props> = ({ post }) => {
     <>
       <Head>
         <title>{post.fields.name}</title>
-        <meta property="description" content={description} />
-        <meta property="og:title" content={post.fields.name} />
-        <meta property="og:description" content={description} />
+        <meta property="description" content={description} key="description" />
+        <meta property="og:title" content={post.fields.name} key="og_title" />
+        <meta property="og:description" content={description} key="og_description" />
       </Head>
       <Animation />
       <div className={`${styles.member_post} ${styles.post} ${classes.memberPost}`}>

@@ -25,9 +25,9 @@ const WorksPost: NextPage<Props> = ({ post }) => {
     <>
       <Head>
         <title>{post.fields.workTtl}</title>
-        <meta property="description" content={description} />
-        <meta property="og:title" content={post.fields.workTtl} />
-        <meta property="og:description" content={description} />
+        <meta property="description" content={description} key="description" />
+        <meta property="og:title" content={post.fields.workTtl} key="og_title" />
+        <meta property="og:description" content={description} key="og_description" />
       </Head>
       <Animation />
       <BackGround opacity={0.8}>

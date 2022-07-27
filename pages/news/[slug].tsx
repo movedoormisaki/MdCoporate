@@ -23,9 +23,9 @@ const Post: NextPage<Props> = ({ post }) => {
     <>
       <Head>
         <title>{post.fields.newTtl}</title>
-        <meta property="description" content={description} />
-        <meta property="og:title" content={post.fields.newTtl} />
-        <meta property="og:description" content={description} />
+        <meta property="description" content={description} key="description" />
+        <meta property="og:title" content={post.fields.newTtl} key="og_title" />
+        <meta property="og:description" content={description} key="og_description" />
       </Head>
       <Animation />
       <BackGround opacity={0.6}>

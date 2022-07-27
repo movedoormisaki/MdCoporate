@@ -29,9 +29,9 @@ const Home: NextPage<Props> = ({ memberData, blogData, workTag, workData, newsDa
     <>
       <Head>
         <title>{title}</title>
-        <meta property="description" content={description} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <meta property="description" content={description} key="description" />
+        <meta property="og:title" content={title} key="og_title" />
+        <meta property="og:description" content={description} key="og_description" />
       </Head>
       <Animation />
       <div className={styles.full_bg}>

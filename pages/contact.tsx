@@ -37,13 +37,7 @@ const Contact: NextPage = ({ respost }: any) => {
     setSubmit(true);
   };
 
-  {
-    /* <script id="_bownow_cs_sid_9d25c3ed8baff8866ae5">
-             
-              </script> */
-  }
-
-  // const element: any = useRef(null);
+  const element: any = useRef(null);
 
   // useEffect(() => {
   //   if (!element.current) return;
@@ -57,18 +51,27 @@ const Contact: NextPage = ({ respost }: any) => {
     <>
       <Head>
         <title>{title}</title>
-        <meta property="description" content={description} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <meta property="description" content={description} key="description" />
+        <meta property="og:title" content={title} key="og_title" />
+        <meta property="og:description" content={description} key="og_description" />
         <script
           id="_bownow_cs_sid_9d25c3ed8baff8866ae5"
           dangerouslySetInnerHTML={{
             __html: `
-            var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
-            _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src
-            ='https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
-            document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
-        `,
+                        var _bownow_cs_sid_9d25c3ed8baff8866ae5 = document.createElement('script');
+                        _bownow_cs_sid_9d25c3ed8baff8866ae5.charset = 'utf-8'; _bownow_cs_sid_9d25c3ed8baff8866ae5.src
+                        ='https://contents.bownow.jp/forms/sid_9d25c3ed8baff8866ae5/trace.js';
+                        document.getElementsByTagName('head')[0].appendChild(_bownow_cs_sid_9d25c3ed8baff8866ae5);
+                    `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                const bownow_iframe = document.getElementById('_bownow_iframe_sid_9d25c3ed8baff8866ae5');
+                const contact_bow_form = document.getElementById('contact_bow_form');
+                contact_bow_form.appendChild(bownow_iframe);
+            `,
           }}
         />
       </Head>
@@ -88,10 +91,11 @@ const Contact: NextPage = ({ respost }: any) => {
               >
                 読み込んでいます…
               </iframe>
-              {/* <div id="contact_bow_form">
+              <div id="contact_bow_form">
                 <div ref={element}></div>
-              </div> */}
-              {/* <form name="contactForm" onSubmit={registerUser}>
+              </div>
+              {/* 
+               <form name="contactForm" onSubmit={registerUser}>
                 <div className={styles.items}>
                   <label htmlFor="company_name">会社名</label>
                   <input id="company_name" name="company_name" type="text" required />
@@ -133,8 +137,8 @@ const Contact: NextPage = ({ respost }: any) => {
                     送信
                   </button>
                 </div>
-              </form> */}
-              {/* </div>
+              </form>
+              </div>
             <div className={submit ? `${styles.thanks} ${styles.submit_tanks}` : styles.thanks}>
               <div className={styles.center}>
                 <div className={styles.thanks_ttl}>

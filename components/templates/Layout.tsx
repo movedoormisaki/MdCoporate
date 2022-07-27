@@ -46,9 +46,9 @@ const Layout = ({ children }: Props) => {
     <>
       <Head>
         <title>{title}</title>
-        <meta property="description" content={description} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <meta property="description" content={description} key="description" />
+        <meta property="og:title" content={title} key="og_title" />
+        <meta property="og:description" content={description} key="og_description" />
         <meta property="og:image" content={`${process.env.SITE_URL}/ogp_large.png`} />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
